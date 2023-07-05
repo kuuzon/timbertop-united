@@ -4,16 +4,17 @@ const ApiError = require('../utilities/ApiError');
 
 module.exports = {
   // [1] POST Validation
-  validateRestaurant(req, res, next){
+  validateProduct(req, res, next){
     console.log(req.body);
     const schema = Joi.object({
       name: Joi.string().min(3).max(50).required(),
-      cuisine: Joi.string().min(3).max(50).required(),
-      rating: Joi.number().required(),
-      cost: Joi.number().required(),
       description: Joi.string().min(3).max(2000).required(),
-      location: Joi.string().min(3).max(50).required(),
-      tags: Joi.array().items(Joi.string()).required(),
+      category: Joi.string().min(3).max(50).required(),
+      price: Joi.number().required(),
+      size: Joi.string().min(3).max(100).required(),
+      texture: Joi.string().min(3).max(100).required(),
+      onSale: Joi.boolean().required(),
+      isAvailable: Joi.boolean().required(),
       image: Joi.any(),
       uploadedFile: Joi.string()
     });
@@ -25,25 +26,23 @@ module.exports = {
     if ( error ) {
       switch(error.details[0].context.key){
         case 'name':
-          next(ApiError.badRequest('You must provide a valid name for the restaurant'))
+          next(ApiError.badRequest('You must provide a valid name for the product'))
           break
 
-        case 'cuisine':
         case 'description':
-          next(ApiError.badRequest('You must provide a valid restaurant cuisine category & description'))
+        case 'category':
+        case 'size':
+        case 'texture':
+          next(ApiError.badRequest('You must provide a valid product information including description, category, size and/or texture'))
           break    
 
-        case 'rating':
         case 'price':
-          next(ApiError.badRequest('You must provide a valid numerical restaurant rating/pricing'))
+          next(ApiError.badRequest('You must provide valid pricing for the product'))
           break
 
-        case 'location':
-          next(ApiError.badRequest('You must provide a valid restaurant suburb location'))
-          break   
-
-        case 'tags':
-          next(ApiError.badRequest('You must provide at least ONE valid tag for the restaurant'))
+        case 'onSale':
+        case 'isAvailable':
+          next(ApiError.badRequest('You must check whether the product is on sale and/or stock remains available for purchase'))
           break   
 
         case 'image':

@@ -4,48 +4,56 @@ const express = require('express');
 const router = express.Router();
 
 // Import modules
-const RestaurantPolicy = require('../policies/restaurantPolicy');
+const ProductPolicy = require('../policies/productPolicy');
 const FilePolicy = require('../policies/filePolicy');
 const VerifyAuth = require('../middleware/verifyAuth');
 const fileServerUpload = require('../middleware/fileServerUpload');
-const RestaurantController = require('../controllers/restaurantController');
+const ProductController = require('../controllers/productController');
 
 // Setup routes within export function
 module.exports = () => {
-  // RESTAURANT ROUTES
-  // GET Route
+  // GET ALL Products
   router.get('/', 
-    RestaurantController.getRestaurant
+    ProductController.getAllProducts
   );
-  // POST Route
+
+  // GET onSALE Products
+  router.get('/onsale', 
+    ProductController.getOnSaleProducts
+  );
+
+  // POST Product
   router.post('/', 
-    [RestaurantPolicy.validateRestaurant,
+    [ProductPolicy.validateProduct,
     FilePolicy.filesPayloadExists,
     FilePolicy.fileSizeLimiter,
     FilePolicy.fileExtLimiter(['.png', '.jpg', '.jpeg', '.gif']),
     VerifyAuth.auth,
     fileServerUpload],
-    RestaurantController.postRestaurant
+    ProductController.postProduct
   );
-  // GET BY ID Route
+
+  // GET BY ID Product
   router.get('/:id',
-    RestaurantController.getRestaurantById
+    ProductController.getProductById
   );
-  // UPDATE BY ID Route
+
+  // UPDATE BY ID Product
   router.put('/:id',
-    [RestaurantPolicy.validateRestaurant,
+    [ProductPolicy.validateProduct,
     FilePolicy.filesPayloadExists,
     FilePolicy.fileSizeLimiter,
     FilePolicy.fileExtLimiter(['.png', '.jpg', '.jpeg', '.gif']),
     VerifyAuth.auth,
     fileServerUpload],
-    RestaurantController.putRestaurantById
+    ProductController.putProductById
   );
-  // DELETE BY ID Route
+
+  // DELETE BY ID Product
   router.delete('/:id',
     [VerifyAuth.auth,
     VerifyAuth.admin],
-    RestaurantController.deleteRestaurantById
+    ProductController.deleteProductById
   );
 
   return router

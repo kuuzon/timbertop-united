@@ -5,7 +5,7 @@ const router = express.Router();
 
 // Import sub-routes
 const authRoutes = require('./authRoutes');
-const restaurantRoutes = require('./restaurantRoutes');
+const productRoutes = require('./productRoutes');
 
 // Setup routes within export function
 module.exports = () => {
@@ -17,8 +17,8 @@ module.exports = () => {
   // [B] Sub-Routes
   // auth routes: http://localhost:5000/api/auth
   router.use('/auth', authRoutes());
-  // restaurant routes: http://localhost:5000/api/restaurants
-  router.use('/restaurants', restaurantRoutes());
+  // product routes: http://localhost:5000/api/products
+  router.use('/products', productRoutes());
 
   return router
 }
