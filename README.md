@@ -1,4 +1,4 @@
-# UrbanSpork
+# Timbertop United
 
 Demo e-commerce shop & MERN-stack for fictional football team "Timbertop United"
 
