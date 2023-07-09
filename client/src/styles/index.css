@@ -1,0 +1,41 @@
+/* GLOBAL CSS */
+@import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root {
+  --primary: #ffffff;
+
+  /* TAILWIND: GRAY 900 */
+  --complementary: #111827;
+  --complementary-light: #1e293b;
+  --complementary-super-light: #334155;
+
+  /* TAILWIND: GRAY 200-400 */
+  --highlight-super-light: #f9fafb;
+  --highlight-light: #e5e7eb;
+  --highlight: #d1d5db;
+  --highlight-dark: #9ca3af;
+  --highlight-super-dark: #4b5563;
+  
+  /* TAILWIND: INDIGO 600-700 */
+  --brand-light: #6366f1;
+  --brand: #4f46e5; 
+  --brand-dark: #3730a3;
+
+  /* TAILWIND: GREEN 600 */
+  --success: #22c55e; 
+
+  /* TAILWIND: RED 600 */
+  --error: #f87171; 
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.appContent {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  flex: 1;
+}
