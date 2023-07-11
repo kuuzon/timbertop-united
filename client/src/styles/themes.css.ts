@@ -1,5 +1,14 @@
 import { createGlobalTheme, createTheme, createThemeContract } from "@vanilla-extract/css";
+import { modularScale } from 'polished';
 import twColors from 'tailwindcss/colors';
+
+const createScale = (ratio: number, base: number) => (steps: number) =>
+  `${modularScale(steps, base, ratio)}px`;
+
+const spaceScale = createScale(1.4, 4);
+const fontSizeScale = createScale(1.2, 16);
+const lineHeightScale = createScale(1.25, 24);
+const borderRadiusScale = createScale(1.5, 4);
 
 export const root = createGlobalTheme(":root", {
   fonts: {
@@ -7,35 +16,62 @@ export const root = createGlobalTheme(":root", {
   },
   colors: {
     // Semantic tokens
-    primary: "#FFFFFF",
-    complementary: "#000000",
+    primary: twColors.white,
+    complementary: twColors.black,
     // complementaryLight: "",
     // complementaryDark: "",
-    brand: "#059669",
-    // brandLight: "",
-    // brandDark: "",
+    brand: twColors.emerald[600],
+    brandLight: twColors.emerald[400],
+    brandDark: twColors.emerald[700],
 
     // Color tokens
-    // success: "#22c55e",
-    // warning: "",
-    // error: "#f87171",
-    grey200: "#f9fafb",
-    grey300: "#e5e7eb",
-    grey400: "#d1d5db",
-    grey500: "#9ca3af",
-    grey600: "#4b5563",
+    success: twColors.green[400],
+    warning: twColors.amber[400],
+    error: twColors.rose[600],
+    grey200: twColors.gray[200],
+    grey300: twColors.gray[300],
+    grey400: twColors.gray[400],
+    grey500: twColors.gray[500],
+    grey600: twColors.gray[600],
   },
   space: {
-    sm: "8px",
-    md: "16px",
-    lg: "24px",
+    // sm: "8px",
+    // md: "16px",
+    // lg: "24px",
+    none: '0',
+    '0x': spaceScale(0),
+    '1x': spaceScale(1),
+    '2x': spaceScale(2),
+    '3x': spaceScale(3),
+    '4x': spaceScale(4),
+    '5x': spaceScale(5),
+    '6x': spaceScale(6),
+    '7x': spaceScale(7),
+    '8x': spaceScale(8),
   },
   fontSizes: {
-    1: '8px',
-    2: '12px',
-    3: '16px', 
-    4: '20px', 
-    5: '24px', 
+    // 1: '8px',
+    // 2: '12px',
+    // 3: '16px', 
+    // 4: '20px', 
+    // 5: '24px', 
+    '0x': fontSizeScale(0),
+    '1x': fontSizeScale(1),
+    '2x': fontSizeScale(2),
+    '3x': fontSizeScale(3),
+    '4x': fontSizeScale(4),
+    '5x': fontSizeScale(5),
+    '6x': fontSizeScale(6),
+    '7x': fontSizeScale(7),
+    '8x': fontSizeScale(8),
+  },
+  lineHeights: {
+    '0x': lineHeightScale(0),
+    '1x': lineHeightScale(1),
+    '2x': lineHeightScale(2),
+    '3x': lineHeightScale(3),
+    '4x': lineHeightScale(4),
+    '5x': lineHeightScale(5),
   },
   fontWeights: {
     light: "300",
@@ -43,7 +79,15 @@ export const root = createGlobalTheme(":root", {
     bold: "600",
     bolder: "700",
   },
-  // lineHeights: {},
+  borderRadius: {
+    '0x': borderRadiusScale(0),
+    '1x': borderRadiusScale(1),
+    '2x': borderRadiusScale(2),
+    '3x': borderRadiusScale(3),
+    '4x': borderRadiusScale(4),
+    '5x': borderRadiusScale(5),
+    full: '99999px',
+  },
   // letterSpacings: {},
   // sizes: {},
   // borderWidths: {},
