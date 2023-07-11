@@ -1,8 +1,10 @@
-
+import Button from "../components/common/TuButton"
 
 const Home = () => {
   return (
-    <div>Home</div>
+    <div>
+      <Button>Submit</Button>
+    </div>
   )
 }
 

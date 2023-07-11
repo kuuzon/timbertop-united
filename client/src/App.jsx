@@ -2,7 +2,7 @@
 import { Routes, Route } from 'react-router-dom';
 
 // LOCAL MODULES
-import Layout from './components/layout';
+import Layout from './components/layout/Layout';
 import Home from './pages/Home';
 import NotFound from './pages/NotFound';
 
