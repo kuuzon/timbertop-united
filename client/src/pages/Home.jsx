@@ -1,9 +1,9 @@
-import Button from "../components/common/TuButton"
+import TuButton from "../components/common/TuButton"
 
 const Home = () => {
   return (
     <div>
-      <Button>Submit</Button>
+      <TuButton>Submit</TuButton>
     </div>
   )
 }
