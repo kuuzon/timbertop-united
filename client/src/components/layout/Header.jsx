@@ -2,7 +2,8 @@
 import { useState, Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import { Nav, Navbar, Container } from "react-bootstrap";
-import { RiExchangeFundsLine, RiShoppingCartFill } from 'react-icons/ri';
+import { RiShoppingCartFill } from 'react-icons/ri';
+import logoImg from '../../assets/images/timbertop-icon.png'
 
 // Import custom modules
 import * as styles from './Header.css';
@@ -22,17 +23,19 @@ const Header = ({ toggleTheme, products }) => {
     <Fragment>
       <Navbar className={styles.navbar} variant="light" expand="lg" sticky="top" >
         <Container>
-          <Navbar.Brand className={styles.navLink} as={Link} to="/">
-            <RiExchangeFundsLine className={styles.logo} />
-            {' '}
-            <span className={styles.brand}>Timbertop United</span>
+          <Navbar.Brand className={styles.brandLink} as={Link} to="/">
+            <img className={styles.logo} src={logoImg} alt="timbertop united logo" />
+            <div className={styles.logoTextBox}>
+              <span className={styles.brand}>Timbertop United</span>
+              <span className={styles.brandSub}>The Official Online Store</span>
+            </div>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav" >
             {/* STANDARD NAVLINKS */}
             <Nav className="me-auto">
               <Nav.Link className={styles.navLink} as={Link} to="#">About</Nav.Link>
-              <Nav.Link className={styles.navLink} as={Link} to="/crypto/prices">Products</Nav.Link>
+              <Nav.Link className={styles.navLink} as={Link} to="#">Products</Nav.Link>
             </Nav>
             {/* AUTH NAVLINKS */}
             <Nav>

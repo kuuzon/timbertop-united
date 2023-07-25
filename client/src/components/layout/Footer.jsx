@@ -8,7 +8,7 @@ const Footer = () => {
 
   return (
     <div className={styles.footer}>
-      &copy; {getCurrentYear()} CentralX
+      &copy; {getCurrentYear()} Timbertop United
     </div>
   )
 }

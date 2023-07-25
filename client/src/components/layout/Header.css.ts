@@ -8,25 +8,42 @@ export const navbar = style({
   boxShadow: "rgba(0, 0, 0, 0.05) 0px 1px 2px 0px"
 })
 
-export const navLink = style({
+export const brandLink = style({
+  display: 'flex',
+  flexDirection: "row",
+  gap: vars.space['2x'],
+  alignItems: "center",
   color: vars.colors.complementary,
   fontSize: vars.fontSizes["0x"],
   textTransform: "uppercase",
-  transition: "0.2s ease-in"
+  transition: "0.2s ease-in",
 })
 
 export const logo = style({
-  fontSize: vars.fontSizes["2x"],
-  marginBottom: vars.space['2x'],
-  color: vars.colors.brand,
-  transition: "all 1s",
+  width: 60,
+})
 
-  ":hover": {
-    transform: "scale(1.10) rotateZ(180deg)"
-  }
+export const logoTextBox = style({
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "center",
+  gap: 0,
 })
 
 export const brand = style({
   fontSize: vars.fontSizes["2x"],
   fontWeight: vars.fontWeights.bolder,
+  lineHeight: vars.lineHeights['0x']
+})
+
+export const brandSub = style({
+  fontSize: vars.fontSizes["0x"],
+  fontWeight: vars.fontWeights.light,
+})
+
+export const navLink = style({
+  color: vars.colors.complementary,
+  fontSize: vars.fontSizes["0x"],
+  textTransform: "uppercase",
+  transition: "0.2s ease-in"
 })
