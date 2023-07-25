@@ -5,10 +5,10 @@ import * as styles from './Layout.css';
 import Header from "./Header"
 import Footer from './Footer'
 
-const Layout = () => {
+const Layout = ({ products }) => {
   return (
     <div className={styles.app}>
-      <Header />
+      <Header products={products} />
       {/* Wrap all content in column-direction flexbox */}
       <div className={styles.appContent}>
         <Outlet />

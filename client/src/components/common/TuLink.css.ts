@@ -1,7 +1,8 @@
 import { style } from '@vanilla-extract/css';
 import { vars } from '../../styles/themes.css';
 
-export const button = style({
+export const navlink = style({
+  textDecoration: "none",
   margin: vars.space['1x'],
   padding: vars.space['2x'],
   color: vars.colors.primary,

@@ -1,45 +1,53 @@
 // Import npm packages
+import { useState, Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import { Nav, Navbar, Container } from "react-bootstrap";
-import { RiExchangeFundsLine } from 'react-icons/ri';
+import { RiExchangeFundsLine, RiShoppingCartFill } from 'react-icons/ri';
 
 // Import custom modules
 import * as styles from './Header.css';
 import useAuth from '../../hooks/useAuth';
-// import CXButton from '../../components/common/CXButton';
-// import CXNavLink from '../common/CXNavLink';
+import TuButton from '../common/TuButton';
+import TuLink from '../common/TuLink';
+import ProductCart from '../features/ProductCart';
 
-const Header = ({ toggleTheme }) => {
+const Header = ({ toggleTheme, products }) => {
   const { user, logout } = useAuth();
+  // CART OFFCANVAS
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
   return (
-    <Navbar className={styles.navbar} variant="light" expand="lg" sticky="top" >
-      <Container>
-        <Navbar.Brand className={styles.navLink} as={Link} to="/">
-          <RiExchangeFundsLine className={styles.logo} />
-          {' '}
-          <span className={styles.brand}>Timbertop United</span>
-        </Navbar.Brand>
-        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-        <Navbar.Collapse id="responsive-navbar-nav" >
-          {/* STANDARD NAVLINKS */}
-          <Nav className="me-auto">
-            <Nav.Link className={styles.navLink} as={Link} to="/about">About</Nav.Link>
-            <Nav.Link className={styles.navLink} as={Link} to="/currency/prices">CBDC</Nav.Link>
-            <Nav.Link className={styles.navLink} as={Link} to="/crypto/prices">Crypto</Nav.Link>
-          </Nav>
-          {/* AUTH NAVLINKS */}
-          <Nav>
-            <span>nice</span>
-            {/* <CXButton onClick={() => { toggleTheme() }} navbar>Theme</CXButton>
-            {!user && <CXNavLink to="/signup" navbar>Sign&nbsp;Up</CXNavLink>}
-            {!user && <CXNavLink to="/login" outline navbar>Log&nbsp;In</CXNavLink>}
-            {user && <CXNavLink to="/dashboard" navbar>Dashboard</CXNavLink>}
-            {user && <CXButton onClick={() => { logout() }} outline navbar>Logout</CXButton>} */}
-          </Nav>
-        </Navbar.Collapse>
-      </Container>
-    </Navbar>
+    <Fragment>
+      <Navbar className={styles.navbar} variant="light" expand="lg" sticky="top" >
+        <Container>
+          <Navbar.Brand className={styles.navLink} as={Link} to="/">
+            <RiExchangeFundsLine className={styles.logo} />
+            {' '}
+            <span className={styles.brand}>Timbertop United</span>
+          </Navbar.Brand>
+          <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+          <Navbar.Collapse id="responsive-navbar-nav" >
+            {/* STANDARD NAVLINKS */}
+            <Nav className="me-auto">
+              <Nav.Link className={styles.navLink} as={Link} to="#">About</Nav.Link>
+              <Nav.Link className={styles.navLink} as={Link} to="/crypto/prices">Products</Nav.Link>
+            </Nav>
+            {/* AUTH NAVLINKS */}
+            <Nav>
+              <TuButton onClick={() => { toggleTheme() }}>Theme</TuButton>
+              {!user && <TuLink to="/signup" >Sign&nbsp;Up</TuLink>}
+              {!user && <TuLink to="/login"  >Log&nbsp;In</TuLink>}
+              {user && <TuLink to="/dashboard" >Dashboard</TuLink>}
+              {user && <TuButton onClick={() => { logout() }} outline navbar>Logout</TuButton>}
+              {<TuButton onClick={handleShow} ><RiShoppingCartFill /></TuButton>}
+            </Nav>
+          </Navbar.Collapse>
+        </Container>
+      </Navbar>
+      <ProductCart show={show} handleClose={handleClose} products={products} />
+    </Fragment>
   )
 }
 
