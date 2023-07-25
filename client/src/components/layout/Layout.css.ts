@@ -3,7 +3,8 @@ import { style } from "@vanilla-extract/css";
 export const app = style({
   display: "flex",
   flexDirection: "column",
-  minHeight: "100vh"
+  minHeight: "100vh",
+  boxSizing: "border-box"
 })
 
 export const appContent = style({
