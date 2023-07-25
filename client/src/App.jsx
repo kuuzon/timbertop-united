@@ -15,7 +15,7 @@ function App() {
     <Routes>
       {/* MAIN LAYOUT WRAPPER & ROUTED CHILDREN */}
       <Route path="/" element={<Layout products={products} />}>
-        <Route index element={<Home />} />
+        <Route index element={<Home setProducts={setProducts} />} />
         {/* ERROR PAGES */}
         <Route path="*" element={<NotFound />} />
       </Route>
