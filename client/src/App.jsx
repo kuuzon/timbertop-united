@@ -5,6 +5,7 @@ import { useState } from 'react';
 // LOCAL MODULES
 import Layout from './components/layout/Layout';
 import Home from './pages/Home';
+import ProductsMenu from './pages/product/ProductsMenu';
 import NotFound from './pages/NotFound';
 
 function App() {
@@ -15,7 +16,11 @@ function App() {
     <Routes>
       {/* MAIN LAYOUT WRAPPER & ROUTED CHILDREN */}
       <Route path="/" element={<Layout products={products} />}>
-        <Route index element={<Home setProducts={setProducts} />} />
+        <Route index element={<Home />} />
+        {/* PRODUCTS API */}
+        <Route path="store">
+          <Route path="products" element={<ProductsMenu products={products} setProducts={setProducts} />} />
+        </Route>
         {/* ERROR PAGES */}
         <Route path="*" element={<NotFound />} />
       </Route>

@@ -7,7 +7,8 @@ const Home = () => {
       <TuBox 
         title="The Official Store for Timbertop United"
         content="Join Timbertop United's devoted fans with exclusive jerseys, scarves, and memorabilia. Unite and celebrate victories in style! "
-        button="Shop Now"
+        link="Shop Now"
+        linkTo="/store/products"
       />
     </Container>
   )

@@ -10,7 +10,7 @@ import * as styles from './Header.css';
 import useAuth from '../../hooks/useAuth';
 import TuButton from '../common/TuButton';
 import TuLink from '../common/TuLink';
-import ProductCart from '../features/ProductCart';
+import ProductCart from '../features/cart/ProductCart';
 
 const Header = ({ toggleTheme, products }) => {
   const { user, logout } = useAuth();
@@ -35,7 +35,7 @@ const Header = ({ toggleTheme, products }) => {
             {/* STANDARD NAVLINKS */}
             <Nav className="me-auto">
               <Nav.Link className={styles.navLink} as={Link} to="#">About</Nav.Link>
-              <Nav.Link className={styles.navLink} as={Link} to="#">Products</Nav.Link>
+              <Nav.Link className={styles.navLink} as={Link} to="/store/products">Products</Nav.Link>
             </Nav>
             {/* AUTH NAVLINKS */}
             <Nav>
