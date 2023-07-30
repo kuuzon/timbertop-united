@@ -5,7 +5,8 @@ import { AuthProvider } from './contexts/AuthContext';
 
 // Global styling
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './styles/index.css'
+import './styles/index.css';
+import 'react-toastify/dist/ReactToastify.css';
 
 // Root component
 import App from './App.jsx'

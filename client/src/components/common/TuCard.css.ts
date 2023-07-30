@@ -10,7 +10,8 @@ export const authForm = style({
 })
 
 export const container = style({
-  minHeight: "80vh",
+  marginTop: "1rem",
+  minHeight: "70vh",
   display: "flex",
   flexDirection: "column"
 })
@@ -22,12 +23,13 @@ export const leadCard = style({
   padding: "2rem",
   borderRadius: "1rem",
   boxShadow: "0 2px 8px rgba(0, 0, 0, 0.2)",
-  textAlign: "center"
+  textAlign: "center",
+  minWidth: "30vw"
 })
 
 export const cardTitle = style({
   color: vars.colors.brand,
   paddingBottom: "1rem",
   fontSize: "2em",
-  fontWeight: vars.fontWeights.bolder
+  fontWeight: vars.fontWeights.bold
 })
