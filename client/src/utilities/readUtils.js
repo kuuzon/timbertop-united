@@ -1,7 +1,8 @@
-function numSeparator(number) {
-  let str = number.toString().split(".");
+function priceFormatter(number) {
+  let decNum = number.toFixed(2)
+  let str = decNum.toString().split(".");
   str[0] = str[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-  return  "$ " + str.join(".");
+  return  "$" + str.join(".");
 }
 
 function capitalizeFirstLetter(string) {
@@ -9,6 +10,6 @@ function capitalizeFirstLetter(string) {
 }
 
 export {
-  numSeparator,
+  priceFormatter,
   capitalizeFirstLetter
 }

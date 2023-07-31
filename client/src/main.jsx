@@ -3,6 +3,9 @@ import ReactDOM from 'react-dom/client'
 import { BrowserRouter } from 'react-router-dom';
 import { AuthProvider } from './contexts/AuthContext';
 
+// CSS Reset
+import './styles/resets.css'
+
 // Global styling
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles/index.css';
