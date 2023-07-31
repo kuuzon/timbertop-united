@@ -16,21 +16,25 @@ import ProductDetail from './pages/product/ProductDetail';
 
 function App() {
   // PRODUCT STATE
-  const [products, setProducts] = useState([]);
-  function addNewProductToCart(newProduct){
+  const [cartProducts, setCartProducts] = useState([]);
+
+  // FUNCTION TO SAVE, UPDATE + REMOVE CART PRODUCTS FROM LOCAL STORAGE
+
+  // PRODUCT-CART FUNCTION: SAVE NEW ITEM TO CART FROM DETAILS
+  function addNewProductToCart(newCartProduct){
     // EXISTING PRODUCT ADDED WITH NEW QUANTITY
-    const duplicateProduct = products.filter(product => product.id == newProduct.id)
-    if (duplicateProduct.length > 0){
-      setProducts(products.map(product => product.id === duplicateProduct[0].id 
-        ? {...product, quantity: product.quantity + newProduct.quantity}
+    const duplicateCartProduct = cartProducts.filter(product => product.id == newCartProduct.id)
+    if (duplicateCartProduct.length > 0){
+      setCartProducts(cartProducts.map(product => product.id === duplicateCartProduct[0].id 
+        ? {...product, quantity: product.quantity + newCartProduct.quantity}
         : product
       ))
     // UNIQUE PRODUCT ADDED TO CART
     } else {
-      setProducts(currentProducts => {
+      setCartProducts(currentProducts => {
         return [
           ...currentProducts,
-          newProduct
+          newCartProduct
         ]
       })
     }
@@ -39,7 +43,7 @@ function App() {
   return (
     <Routes>
       {/* MAIN LAYOUT WRAPPER & ROUTED CHILDREN */}
-      <Route path="/" element={<Layout products={products} />}>
+      <Route path="/" element={<Layout cartProducts={cartProducts} />}>
         <Route index element={<Home />} />
         {/* AUTH */}
         <Route path="signup" element={<Signup />} />
@@ -50,7 +54,7 @@ function App() {
         </Route>
         {/* PRODUCTS API */}
         <Route path="store">
-          <Route path="products" element={<ProductsMenu products={products} setProducts={setProducts} />} />
+          <Route path="products" element={<ProductsMenu />} />
           <Route path="product">
             <Route path=":id" element={<ProductDetail addNewProductToCart={addNewProductToCart}/>}/>
           </Route>

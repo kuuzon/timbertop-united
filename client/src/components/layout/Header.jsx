@@ -12,7 +12,7 @@ import TuButton from '../common/TuButton';
 import TuLink from '../common/TuLink';
 import ProductCart from '../features/cart/ProductCart';
 
-const Header = ({ toggleTheme, products }) => {
+const Header = ({ toggleTheme, cartProducts }) => {
   const { user, logout } = useAuth();
   // CART OFFCANVAS
   const [show, setShow] = useState(false);
@@ -49,7 +49,7 @@ const Header = ({ toggleTheme, products }) => {
           </Navbar.Collapse>
         </Container>
       </Navbar>
-      <ProductCart show={show} handleClose={handleClose} products={products} />
+      <ProductCart show={show} handleClose={handleClose} cartProducts={cartProducts} />
     </Fragment>
   )
 }

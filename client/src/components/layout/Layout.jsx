@@ -6,7 +6,7 @@ import { ToastContainer, Slide } from 'react-toastify';
 import Header from "./Header"
 import Footer from './Footer'
 
-const Layout = ({ products }) => {
+const Layout = ({ cartProducts }) => {
   return (
     <div className={styles.app}>
       {/* TOAST is a popup component to display Errors */}
@@ -24,7 +24,7 @@ const Layout = ({ products }) => {
         transition={Slide}
         theme="colored"
       />
-      <Header products={products} />
+      <Header cartProducts={cartProducts} />
       {/* Wrap all content in column-direction flexbox */}
       <div className={styles.appContent}>
         <Outlet />

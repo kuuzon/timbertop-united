@@ -1,7 +1,7 @@
 import * as styles from './ProductCart.css';
 import Offcanvas from "react-bootstrap/Offcanvas";
 
-function ProductCart({ show, handleClose, products }) {
+function ProductCart({ show, handleClose, cartProducts }) {
   return (
     <Offcanvas 
       show={show} 
@@ -11,7 +11,7 @@ function ProductCart({ show, handleClose, products }) {
       backdrop={true}
     >
       <Offcanvas.Header closeButton>
-        <Offcanvas.Title className={styles.cartHeader}>Shopping Cart &#40;{products.length}&#41;</Offcanvas.Title>
+        <Offcanvas.Title className={styles.cartHeader}>Shopping Cart &#40;{cartProducts.length}&#41;</Offcanvas.Title>
       </Offcanvas.Header>
       <Offcanvas.Body>
         Dynamic products coming soon ...
