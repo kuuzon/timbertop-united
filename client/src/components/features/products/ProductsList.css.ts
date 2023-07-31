@@ -2,8 +2,8 @@ import { style } from '@vanilla-extract/css';
 import { vars } from '../../../styles/themes.css';
 
 export const gridContainer = style({
-  maxWidth: "100%",
   margin: `${vars.space['8x']} 0`,
+  width: "100%",
 })
 
 export const productGrid = style({

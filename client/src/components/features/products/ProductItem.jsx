@@ -4,7 +4,7 @@ import * as styles from './ProductItem.css'
 function ProductItem(props) {
   return (
     <figure>
-      <Link className={styles.productLink} to="#">
+      <Link className={styles.productLink} to={`/store/product/${props.id}`}>
         <div className={styles.productCard}>
           {/* IMAGE BOX: PICTURE ELEMENT */}
           <picture>
