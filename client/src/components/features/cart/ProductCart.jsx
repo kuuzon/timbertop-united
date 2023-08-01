@@ -10,10 +10,10 @@ function ProductCart({ show, handleClose, cartProducts }) {
       scroll={true}
       backdrop={true}
     >
-      <Offcanvas.Header closeButton>
+      <Offcanvas.Header className={styles.cartContainer} closeButton>
         <Offcanvas.Title className={styles.cartHeader}>Shopping Cart &#40;{cartProducts.length}&#41;</Offcanvas.Title>
       </Offcanvas.Header>
-      <Offcanvas.Body>
+      <Offcanvas.Body className={styles.cartBody}>
         Dynamic products coming soon ...
       </Offcanvas.Body>
     </Offcanvas>

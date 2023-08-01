@@ -3,12 +3,12 @@ import ReactDOM from 'react-dom/client'
 import { BrowserRouter } from 'react-router-dom';
 import { AuthProvider } from './contexts/AuthContext';
 
-// CSS Reset
+// CSS Reset & Typography
 import './styles/resets.css'
+import './styles/typography.css'
 
 // Global styling
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './styles/index.css';
 import 'react-toastify/dist/ReactToastify.css';
 
 // Root component

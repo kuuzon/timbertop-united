@@ -2,6 +2,7 @@ import { style } from '@vanilla-extract/css';
 import { vars } from '../../styles/themes.css';
 
 export const navbar = style({
+  fontFamily: vars.fonts.brand,
   backgroundColor: vars.colors.primary,
   padding: `${vars.space['5x']} 0`,
   transition: "background 0.2s ease-in, color 0.2s ease-in",

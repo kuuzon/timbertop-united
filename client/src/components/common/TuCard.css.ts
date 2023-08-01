@@ -6,7 +6,7 @@ export const generalForm = style({
 })
 
 export const authForm = style({
-  minWidth: "30vw"
+  minWidth: "25vw"
 })
 
 export const container = style({
@@ -24,7 +24,6 @@ export const leadCard = style({
   borderRadius: "1rem",
   boxShadow: "0 2px 8px rgba(0, 0, 0, 0.2)",
   textAlign: "center",
-  minWidth: "30vw"
 })
 
 export const cardTitle = style({

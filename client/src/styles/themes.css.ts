@@ -12,7 +12,8 @@ const borderRadiusScale = createScale(1.5, 4);
 
 export const root = createGlobalTheme(":root", {
   fonts: {
-    system: "Montserrat, apple-system, sans-serif",
+    brand: "Montserrat, apple-system, sans-serif",
+    body: "Open Sans, apple-system, sans-serif",
   },
   colors: {
     // Semantic tokens

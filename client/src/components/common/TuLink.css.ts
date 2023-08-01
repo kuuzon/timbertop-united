@@ -10,8 +10,9 @@ export const navlink = style({
   borderRadius: 0,
   border: `3px ${vars.colors.complementary} solid`,
   textTransform: "uppercase",
-  fontFamily: vars.fonts.system,
+  fontFamily: vars.fonts.brand,
   fontWeight: vars.fontWeights.bolder,
+  textAlign: "center",
 
   ":hover": {
     color: vars.colors.complementary,
