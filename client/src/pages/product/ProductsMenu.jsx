@@ -4,6 +4,7 @@ import Container from 'react-bootstrap/Container';
 // Local modules
 import useAuth from '../../hooks/useAuth';
 import TuLink from '../../components/common/TuLink';
+import TuLoader from '../../components/common/TuLoader';
 import productService from '../../services/productService';
 import ProductsList from '../../components/features/products/ProductsList';
 
@@ -64,15 +65,15 @@ function ProductsMenu() {
   // CONDITIONAL LOAD: LOADING
   if (loading) {
     return (
-      <Container>
-        <p>Loading ...</p>
+      <Container className="text-center">
+        <TuLoader />
       </Container>
     )
   }
 
   // DEFAULT LOAD: SUCCESS API CALL
   return (
-    <Container>
+    <Container className="text-center">
       <h1>Timbertop United Kits &amp; Apparel</h1>
       <p>Get the official 2023/24 Timbertop United Kits, inspired by the iconic TU anniversary crest - celebrating its 20th anniversary</p>
 
