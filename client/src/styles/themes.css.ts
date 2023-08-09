@@ -36,9 +36,6 @@ export const root = createGlobalTheme(":root", {
     grey600: twColors.gray[600],
   },
   space: {
-    // sm: "8px",
-    // md: "16px",
-    // lg: "24px",
     none: '0',
     '0x': spaceScale(0),
     '1x': spaceScale(1),
@@ -51,11 +48,6 @@ export const root = createGlobalTheme(":root", {
     '8x': spaceScale(8),
   },
   fontSizes: {
-    // 1: '8px',
-    // 2: '12px',
-    // 3: '16px', 
-    // 4: '20px', 
-    // 5: '24px', 
     '0x': fontSizeScale(0),
     '1x': fontSizeScale(1),
     '2x': fontSizeScale(2),

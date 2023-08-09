@@ -10,7 +10,6 @@ export const app = style({
 })
 
 export const appContent = style({
-  marginTop: "1rem",
-  marginBottom: "1rem",
+  margin: `${vars.space["4x"]} 0`,
   flex: 1
 })
