@@ -2,8 +2,8 @@ import { style } from "@vanilla-extract/css";
 import { vars } from '../../styles/themes.css';
 
 export const app = style({
-  boxSizing: "border-box",
   fontFamily: vars.fonts.body,
+  backgroundColor: vars.colors.primary,
   display: "flex",
   flexDirection: "column",
   minHeight: "100vh",
