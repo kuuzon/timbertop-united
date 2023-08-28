@@ -1,6 +1,6 @@
 import { useState, useRef } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { Form } from 'react-bootstrap';
+import { Form, Spinner } from 'react-bootstrap';
 import { toast } from 'react-toastify';
 
 // LOCAL MODULES
@@ -91,7 +91,13 @@ function Signup() {
 
         {/* SUBMIT BUTTON */}
         <TuButton loadingState={loading}>
-          {loading ? '...' : 'Submit'}
+          {loading ? <Spinner
+            as="span"
+            animation="border"
+            size="sm"
+            role="status"
+            aria-hidden="true"
+          /> : 'Submit'}
         </TuButton>
       </Form>
       <div className={styles.userNav}>

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { Form } from 'react-bootstrap';
+import { Form, Spinner } from 'react-bootstrap';
 
 // Import custom modules
 import * as styles from './Login.css'
@@ -60,7 +60,13 @@ const Login = () => {
 
         {/* SUBMIT BUTTON */}
         <TuButton loadingState={loading}>
-          {loading ? '...' : 'Submit'}
+          {loading ? <Spinner
+            as="span"
+            animation="border"
+            size="sm"
+            role="status"
+            aria-hidden="true"
+          /> : 'Submit'}
         </TuButton>
       </Form>
       <div className={styles.userNav}>
