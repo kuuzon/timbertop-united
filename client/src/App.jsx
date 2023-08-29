@@ -15,7 +15,7 @@ import ProductsMenu from './pages/product/ProductsMenu';
 import ProductDetail from './pages/product/ProductDetail';
 
 function App() {
-  // PRODUCT STATE
+  // APP-LEVEL STATE
   const [cartProducts, setCartProducts] = useState([]);
 
   // FUNCTION TO SAVE, UPDATE + REMOVE CART PRODUCTS FROM LOCAL STORAGE

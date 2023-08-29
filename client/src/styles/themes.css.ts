@@ -19,16 +19,14 @@ export const root = createGlobalTheme(":root", {
     // Semantic tokens
     primary: twColors.white,
     complementary: twColors.black,
-    // complementaryLight: "",
-    // complementaryDark: "",
     brand: twColors.emerald[600],
     brandLight: twColors.emerald[400],
     brandDark: twColors.emerald[700],
-
-    // Color tokens
     success: twColors.green[400],
     warning: twColors.amber[400],
     error: twColors.rose[600],
+
+    // Color tokens
     grey200: twColors.gray[200],
     grey300: twColors.gray[300],
     grey400: twColors.gray[400],
@@ -104,40 +102,52 @@ export const root = createGlobalTheme(":root", {
   // },
 })
 
-// const colors = createThemeContract({
-//   primary: null,
-//   complementary: null,
-//   brand: null,
-//   error: null,
-//   grey200: null,
-//   grey300: null,
-//   grey400: null,
-//   grey500: null,
-//   grey600: null,
-// });
+const colors = createThemeContract({
+  primary: null,
+  complementary: null,
+  brand: null,
+  brandLight: null,
+  brandDark: null,
+  success: null,
+  warning: null,
+  error: null,
+  grey200: null,
+  grey300: null,
+  grey400: null,
+  grey500: null,
+  grey600: null,
+});
 
-// export const lightTheme = createTheme(colors, {
-//   primary: "#FFFFFF",
-//   complementary: "#000000",
-//   brand: "#059669",
-//   error: "#f87171",
-//   grey200: "#f9fafb",
-//   grey300: "#e5e7eb",
-//   grey400: "#d1d5db",
-//   grey500: "#9ca3af",
-//   grey600: "#4b5563",
-// });
+export const lightTheme = createTheme(colors, {
+  primary: twColors.white,
+  complementary: twColors.black,
+  brand: twColors.emerald[600],
+  brandLight: twColors.emerald[400],
+  brandDark: twColors.emerald[700],
+  success: twColors.green[400],
+  warning: twColors.amber[400],
+  error: twColors.rose[600],
+  grey200: twColors.gray[200],
+  grey300: twColors.gray[300],
+  grey400: twColors.gray[400],
+  grey500: twColors.gray[500],
+  grey600: twColors.gray[600],
+});
 
-// export const darkTheme = createTheme(colors, {
-//   primary: "#000000",
-//   complementary: "#FFFFFF",
-//   brand: "#059669",
-//   error: "#f87171",
-//   grey200: "#f9fafb",
-//   grey300: "#e5e7eb",
-//   grey400: "#d1d5db",
-//   grey500: "#9ca3af",
-//   grey600: "#4b5563",
-// });
+export const darkTheme = createTheme(colors, {
+  primary: twColors.zinc[900],
+  complementary: twColors.white,
+  brand: twColors.emerald[600],
+  brandLight: twColors.emerald[400],
+  brandDark: twColors.emerald[700],
+  success: twColors.green[400],
+  warning: twColors.amber[400],
+  error: twColors.rose[600],
+  grey200: twColors.gray[200],
+  grey300: twColors.gray[300],
+  grey400: twColors.gray[400],
+  grey500: twColors.gray[500],
+  grey600: twColors.gray[600],
+});
 
-export const vars = { ...root };
+export const vars = { ...root, colors };

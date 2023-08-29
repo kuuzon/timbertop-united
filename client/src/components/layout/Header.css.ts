@@ -18,6 +18,14 @@ export const brandLink = style({
   fontSize: vars.fontSizes["0x"],
   textTransform: "uppercase",
   transition: "0.2s ease-in",
+
+  ":focus": {
+    color: vars.colors.complementary,
+  },
+
+  ":hover": {
+    color: vars.colors.grey200,
+  },
 })
 
 export const logo = style({
@@ -48,7 +56,11 @@ export const navLink = style({
   textTransform: "uppercase",
   transition: "0.2s ease-in",
 
+  ":focus": {
+    color: vars.colors.brand,
+  },
+
   ":hover": {
-    color: vars.colors.brand
-  }
+    color: vars.colors.brandLight,
+  },
 })
