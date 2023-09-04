@@ -135,7 +135,7 @@ export const lightTheme = createTheme(colors, {
 });
 
 export const darkTheme = createTheme(colors, {
-  primary: twColors.zinc[900],
+  primary: twColors.neutral[900],
   complementary: twColors.white,
   brand: twColors.emerald[600],
   brandLight: twColors.emerald[400],

@@ -4,33 +4,31 @@ require('dotenv').config();
 const express = require('express');
 const morgan = require('morgan');
 const fileUpload = require('express-fileupload');
-const helmet = require("helmet");
 const cors = require('cors');
+const helmet = require("helmet");
+
 // Local modules
 const config = require('./config/config'); 
-const corsOptions = require('./config/corsOptions');
-const { dbPing } = require('./config/db');
 const ApiError = require('./utilities/ApiError');
 const apiErrorHandler = require('./middleware/apiErrorHandler');
 const routes = require('./routes/routes');
-
-// Import root debug
+const { dbPing } = require('./config/db');
+const corsOptions = require('./config/corsOptions');
 const debugStartup = require('debug')('app:startup');
 
 // Instantiated Express for Server
 const app = express();
 
 // EXPRESS MIDDLEWARE
-// HTTP Header-setter security
+// HTTP Header-setter security & CORS
 app.use(helmet());
-
-// Cross Origin Resource Sharing
 app.use(cors(corsOptions));
-debugStartup('Helmet & CORS Pre-Flight requests enabled on all routes');
+debugStartup('Helmet & CORS Pre-Flight requests enabled');
 
-// Middleware for json + urlencoded form data 
+// POST request parsing middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+debugStartup('POST parsing middleware enabled for JSON/URL');
 
 // File parsing middleware
 app.use(fileUpload({ createParentPath: true }));

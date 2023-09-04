@@ -30,7 +30,7 @@ module.exports = {
 
         case 'password':
           console.log(error)
-          next(ApiError.badRequest('You must provide a valid passwprd'))
+          next(ApiError.badRequest('You must provide a valid password'))
           break
 
         default: 
