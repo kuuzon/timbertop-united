@@ -40,6 +40,7 @@ const Login = () => {
       navigate('/dashboard');
     } catch(err) {
       console.log(err?.response);
+      setTimeout(() => {setLoading(false)}, 1000);
     }
   }
 
