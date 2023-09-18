@@ -32,6 +32,8 @@ export const root = createGlobalTheme(":root", {
     grey400: twColors.gray[400],
     grey500: twColors.gray[500],
     grey600: twColors.gray[600],
+    grey700: twColors.gray[700],
+    grey800: twColors.gray[800],
   },
   space: {
     none: '0',
@@ -116,6 +118,8 @@ const colors = createThemeContract({
   grey400: null,
   grey500: null,
   grey600: null,
+  grey700: null,
+  grey800: null,
 });
 
 export const lightTheme = createTheme(colors, {
@@ -132,6 +136,8 @@ export const lightTheme = createTheme(colors, {
   grey400: twColors.gray[400],
   grey500: twColors.gray[500],
   grey600: twColors.gray[600],
+  grey700: twColors.gray[700],
+  grey800: twColors.gray[800],
 });
 
 export const darkTheme = createTheme(colors, {
@@ -148,6 +154,8 @@ export const darkTheme = createTheme(colors, {
   grey400: twColors.gray[400],
   grey500: twColors.gray[500],
   grey600: twColors.gray[600],
+  grey700: twColors.gray[700],
+  grey800: twColors.gray[800],
 });
 
 export const vars = { ...root, colors };

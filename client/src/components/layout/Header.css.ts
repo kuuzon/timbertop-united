@@ -24,7 +24,8 @@ export const brandLink = style({
   },
 
   ":hover": {
-    color: vars.colors.grey200,
+    color: vars.colors.grey600,
+    opacity: 0.6
   },
 })
 
