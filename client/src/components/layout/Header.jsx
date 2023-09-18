@@ -12,7 +12,7 @@ import TuButton from '../common/TuButton';
 import TuLink from '../common/TuLink';
 import ProductCart from '../features/cart/ProductCart';
 
-const Header = ({ toggleTheme, cartProducts }) => {
+const Header = ({ cartProducts, handleToggleTheme }) => {
   const { user, logout } = useAuth();
   // CART OFFCANVAS
   const [show, setShow] = useState(false);
@@ -39,7 +39,7 @@ const Header = ({ toggleTheme, cartProducts }) => {
             </Nav>
             {/* AUTH NAVLINKS */}
             <Nav>
-              <TuButton onClick={() => { toggleTheme() }}>Theme</TuButton>
+              <TuButton onClick={() => { handleToggleTheme() }}>Theme</TuButton>
               {!user && <TuLink to="/signup" >Sign&nbsp;Up</TuLink>}
               {!user && <TuLink to="/login"  >Log&nbsp;In</TuLink>}
               {user && <TuLink to="/dashboard" >Dashboard</TuLink>}

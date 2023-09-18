@@ -19,7 +19,7 @@ export const styledInput = style({
   transition: "all 0.2s",
 
   ":focus": {
-    border: `2px solid ${vars.colors.grey400}`,
+    border: `2px solid ${vars.colors.highlight}`,
     boxShadow: "none",
     transform: "scale(1.01)"
   }

@@ -15,26 +15,6 @@ export const root = createGlobalTheme(":root", {
     brand: "Montserrat, apple-system, sans-serif",
     body: "Open Sans, apple-system, sans-serif",
   },
-  colors: {
-    // Semantic tokens
-    primary: twColors.white,
-    complementary: twColors.black,
-    brand: twColors.emerald[600],
-    brandLight: twColors.emerald[400],
-    brandDark: twColors.emerald[700],
-    success: twColors.green[400],
-    warning: twColors.amber[400],
-    error: twColors.rose[600],
-
-    // Color tokens
-    grey200: twColors.gray[200],
-    grey300: twColors.gray[300],
-    grey400: twColors.gray[400],
-    grey500: twColors.gray[500],
-    grey600: twColors.gray[600],
-    grey700: twColors.gray[700],
-    grey800: twColors.gray[800],
-  },
   space: {
     none: '0',
     '0x': spaceScale(0),
@@ -110,16 +90,12 @@ const colors = createThemeContract({
   brand: null,
   brandLight: null,
   brandDark: null,
+  highlightLight: null,
+  highlight: null,
+  highlightDark: null,
   success: null,
   warning: null,
   error: null,
-  grey200: null,
-  grey300: null,
-  grey400: null,
-  grey500: null,
-  grey600: null,
-  grey700: null,
-  grey800: null,
 });
 
 export const lightTheme = createTheme(colors, {
@@ -128,34 +104,26 @@ export const lightTheme = createTheme(colors, {
   brand: twColors.emerald[600],
   brandLight: twColors.emerald[400],
   brandDark: twColors.emerald[700],
+  highlightLight: twColors.gray[200],
+  highlight: twColors.gray[400],
+  highlightDark: twColors.gray[600],
   success: twColors.green[400],
   warning: twColors.amber[400],
   error: twColors.rose[600],
-  grey200: twColors.gray[200],
-  grey300: twColors.gray[300],
-  grey400: twColors.gray[400],
-  grey500: twColors.gray[500],
-  grey600: twColors.gray[600],
-  grey700: twColors.gray[700],
-  grey800: twColors.gray[800],
 });
 
 export const darkTheme = createTheme(colors, {
-  primary: twColors.neutral[900],
+  primary: twColors.gray[800],
   complementary: twColors.white,
   brand: twColors.emerald[600],
   brandLight: twColors.emerald[400],
   brandDark: twColors.emerald[700],
+  highlightLight: twColors.gray[200],
+  highlight: twColors.gray[300],
+  highlightDark: twColors.gray[400],
   success: twColors.green[400],
   warning: twColors.amber[400],
   error: twColors.rose[600],
-  grey200: twColors.gray[200],
-  grey300: twColors.gray[300],
-  grey400: twColors.gray[400],
-  grey500: twColors.gray[500],
-  grey600: twColors.gray[600],
-  grey700: twColors.gray[700],
-  grey800: twColors.gray[800],
 });
 
 export const vars = { ...root, colors };

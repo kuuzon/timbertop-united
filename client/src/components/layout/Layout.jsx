@@ -4,12 +4,32 @@ import { lightTheme, darkTheme } from '../../styles/themes.css';
 import Header from "./Header"
 import Footer from './Footer'
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Outlet } from 'react-router-dom';
 import { ToastContainer, Slide } from 'react-toastify';
 
 const Layout = ({ cartProducts }) => {
-  const [isDarkTheme, setIsDarkTheme] = useState(false);
+  const [theme, setTheme] = useState("light");
+  const isDarkTheme = theme === "dark";
+
+  // Theme Toggle Function
+  const toggleTheme = () => {
+    const updatedTheme = isDarkTheme ? "light" : "dark";
+    setTheme(updatedTheme);
+    localStorage.setItem("theme", updatedTheme);
+  }
+
+  // Check Dark Mode Theme User Preferences
+  useEffect(() => {
+    const savedTheme = localStorage.getItem("theme");
+    const prefersDark = window.matchMedia &&
+      window.matchMedia('(prefers-color-scheme: dark)').matches;
+    if (savedTheme && ["dark", "light"].includes(savedTheme)) {
+      setTheme(savedTheme);
+    } else if (prefersDark) {
+      setTheme("dark");
+    }
+  }, []);
 
   return (
     <div className={`${styles.app} ${isDarkTheme ? darkTheme : lightTheme}`}>
@@ -27,7 +47,7 @@ const Layout = ({ cartProducts }) => {
         transition={Slide}
         theme="colored"
       />
-      <Header cartProducts={cartProducts} />
+      <Header cartProducts={cartProducts} handleToggleTheme={toggleTheme} />
       <div className={styles.appContent}>
         <Outlet />
       </div>

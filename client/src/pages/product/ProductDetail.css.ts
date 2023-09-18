@@ -16,5 +16,5 @@ export const productBoxRight = style({
   height: "100%",
   width: "50%",
   padding: "1rem",
-  backgroundColor: vars.colors.grey400
+  backgroundColor: vars.colors.highlight
 })

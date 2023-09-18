@@ -43,5 +43,5 @@ export const productCardTitle = style({
 export const productCardDescription = style({
   fontSize: vars.fontSizes['0x'],
   fontWeight: vars.fontWeights.light,
-  color: vars.colors.grey600
+  color: vars.colors.highlightDark
 })

@@ -19,7 +19,7 @@ export const twinBox = style({
 globalStyle(`${twinBox} h1`, {
   margin: 0,
   padding: vars.space['4x'],
-  borderRight: `2px solid ${vars.colors.grey300}`,
+  borderRight: `2px solid ${vars.colors.highlightLight}`,
   fontSize: vars.fontSizes['2x'],
   fontWeight: vars.fontWeights.normal,
   color: vars.colors.complementary,

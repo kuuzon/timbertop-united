@@ -1,12 +1,11 @@
-import { style } from '@vanilla-extract/css';
+import { style, globalStyle } from '@vanilla-extract/css';
 import { vars } from '../../styles/themes.css';
 
 export const navbar = style({
   fontFamily: vars.fonts.brand,
   backgroundColor: vars.colors.primary,
   padding: `${vars.space['5x']} 0`,
-  transition: "background 0.2s ease-in, color 0.2s ease-in",
-  boxShadow: "rgba(0, 0, 0, 0.05) 0px 1px 2px 0px"
+  boxShadow: `rgba(0, 0, 0, 0.05) 0px 1px 2px 0px`
 })
 
 export const brandLink = style({
@@ -17,15 +16,15 @@ export const brandLink = style({
   color: vars.colors.complementary,
   fontSize: vars.fontSizes["0x"],
   textTransform: "uppercase",
-  transition: "0.2s ease-in",
+  transition: "0.2s ease-in-out",
 
   ":focus": {
     color: vars.colors.complementary,
   },
 
   ":hover": {
-    color: vars.colors.grey600,
-    opacity: 0.6
+    color: vars.colors.highlightDark,
+    // opacity: 0.7
   },
 })
 
