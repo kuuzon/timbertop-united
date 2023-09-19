@@ -8,7 +8,7 @@ function ProductCartItem({ product }) {
       <figcaption className={styles.productDetails}>
         <h6 className={styles.productTitle}>{product.name}</h6>
         <p>Quantity: {product.quantity}</p>
-        <p className={styles.productPrice}>{priceFormatter(product.price)}</p>
+        <p className={styles.productPrice}>{priceFormatter(product.totalPrice)}</p>
       </figcaption>
     </div>
   )

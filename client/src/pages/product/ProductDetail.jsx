@@ -6,10 +6,8 @@ import { Container } from 'react-bootstrap';
 import * as styles from "./ProductDetail.css"
 import useAuth from '../../hooks/useAuth';
 import productService from '../../services/productService';
-import { priceFormatter } from '../../utilities/readUtils';
 import ProductCounter from '../../components/features/cart/ProductCounter';
 import TuButton from '../../components/common/TuButton';
-import TuLink from '../../components/common/TuLink';
 
 function ProductDetail({ addNewProductToCart }) {
   // HOOK: CONTEXT FOR AUTH
@@ -73,7 +71,8 @@ function ProductDetail({ addNewProductToCart }) {
     if (productCount === 0) return;
     addNewProductToCart({
       ...productData,
-      quantity: productCount
+      quantity: productCount,
+      totalPrice: productCount * productData.price
     });
     navigate('/store/products');
   }
