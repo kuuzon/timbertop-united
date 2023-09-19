@@ -61,6 +61,12 @@ export const root = createGlobalTheme(":root", {
     '5x': borderRadiusScale(5),
     full: '99999px',
   },
+  // media: {
+  //   xs: 'screen and (min-width: 480px)',
+  //   sm: 'screen and (min-width: 768px)',
+  //   md: 'screen and (min-width: 1024px)',
+  //   lg: 'screen and (min-width: 1280px)',
+  // },
   // letterSpacings: {},
   // sizes: {},
   // borderWidths: {},
@@ -69,23 +75,11 @@ export const root = createGlobalTheme(":root", {
   // shadows: {},
   // zIndices: {},
   // transitions: {},
-  // media: {
-    // MAX-WIDTH: WEBAPP-FIRST APPROACH (anything above 1280px is the default width)
-  //   xs: "(max-width: 640px)",
-  //   sm: "(max-width: 768px)",
-  //   md: "(max-width: 1024px)",
-  //   lg: "(max-width: 1280px)",   
-
-    // MIN-WIDTH: MOBILE-FIRST APPROACH (anything from 0px to 640px is the default width)
-  //   bp1: '(min-width: 640px)',
-  //   bp2: '(min-width: 768px)',
-  //   bp3: '(min-width: 1024px)',
-  //   bp4: '(min-width: 1280px)',
-  // },
 })
 
 const colors = createThemeContract({
   primary: null,
+  primaryContrast: null,
   complementary: null,
   brand: null,
   brandLight: null,
@@ -100,6 +94,7 @@ const colors = createThemeContract({
 
 export const lightTheme = createTheme(colors, {
   primary: twColors.white,
+  primaryContrast: twColors.gray[50],
   complementary: twColors.black,
   brand: twColors.emerald[600],
   brandLight: twColors.emerald[400],
@@ -109,11 +104,13 @@ export const lightTheme = createTheme(colors, {
   highlightDark: twColors.gray[600],
   success: twColors.green[400],
   warning: twColors.amber[400],
-  error: twColors.rose[600],
+  error: twColors.rose[600]
+
 });
 
 export const darkTheme = createTheme(colors, {
-  primary: twColors.gray[800],
+  primary: twColors.slate[900],
+  primaryContrast: twColors.slate[800],
   complementary: twColors.white,
   brand: twColors.emerald[600],
   brandLight: twColors.emerald[400],

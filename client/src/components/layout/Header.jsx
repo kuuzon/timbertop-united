@@ -44,12 +44,16 @@ const Header = ({ cartProducts, handleToggleTheme }) => {
               {!user && <TuLink to="/login"  >Log&nbsp;In</TuLink>}
               {user && <TuLink to="/dashboard" >Dashboard</TuLink>}
               {user && <TuButton onClick={() => { logout() }} outline navbar>Logout</TuButton>}
-              {<TuButton onClick={handleShow} ><RiShoppingCartFill /></TuButton>}
+              {<TuButton onClick={handleShow}  ><RiShoppingCartFill /></TuButton>}
             </Nav>
           </Navbar.Collapse>
         </Container>
       </Navbar>
-      <ProductCart show={show} handleClose={handleClose} cartProducts={cartProducts} />
+      <ProductCart 
+        show={show} 
+        handleClose={handleClose} 
+        cartProducts={cartProducts} 
+      />
     </Fragment>
   )
 }

@@ -5,7 +5,7 @@ export const navbar = style({
   fontFamily: vars.fonts.brand,
   backgroundColor: vars.colors.primary,
   padding: `${vars.space['5x']} 0`,
-  boxShadow: `rgba(0, 0, 0, 0.05) 0px 1px 2px 0px`
+  boxShadow: `${vars.colors.primaryContrast} 0px 2px 2px 0px`
 })
 
 export const brandLink = style({
@@ -24,7 +24,6 @@ export const brandLink = style({
 
   ":hover": {
     color: vars.colors.highlightDark,
-    // opacity: 0.7
   },
 })
 

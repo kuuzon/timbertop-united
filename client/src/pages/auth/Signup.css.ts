@@ -1,5 +1,6 @@
 import { style, globalStyle } from "@vanilla-extract/css";
 import { vars } from "../../styles/themes.css";
+import { adjustHue } from 'polished';
 
 export const styledLabel = style({
   display: "none",
@@ -12,16 +13,22 @@ export const styledInput = style({
   fontSize: "0.9em",
   letterSpacing: "0.1em",
   outline: "none",
-  border: "2px solid rgba(0, 0, 0, 0.02)",
-  borderRadius: "1rem",
+  border: `2px solid rgba(0, 0, 0, 0.02)`,
+  borderRadius: vars.borderRadius["1x"],
   color: vars.colors.complementary,
-  background: "rgba(136, 126, 126, 0.04)",
+  background: vars.colors.primaryContrast,
   transition: "all 0.2s",
 
   ":focus": {
     border: `2px solid ${vars.colors.highlight}`,
+    backgroundColor: vars.colors.primaryContrast,
+    color: vars.colors.complementary,
     boxShadow: "none",
-    transform: "scale(1.01)"
+    transform: "scale(1.01)",
+  },
+
+  "::placeholder": {
+    color: vars.colors.highlightDark,
   }
 })
 
