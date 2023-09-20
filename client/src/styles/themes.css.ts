@@ -26,6 +26,8 @@ export const root = createGlobalTheme(":root", {
     '6x': spaceScale(6),
     '7x': spaceScale(7),
     '8x': spaceScale(8),
+    '9x': spaceScale(9),
+    '10x': spaceScale(10),
   },
   fontSizes: {
     '0x': fontSizeScale(0),

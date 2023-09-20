@@ -35,7 +35,7 @@ const Header = ({ cartProducts, handleToggleTheme }) => {
             {/* STANDARD NAVLINKS */}
             <Nav className="me-auto">
               <Nav.Link className={styles.navLink} as={Link} to="/store/products">Products</Nav.Link>
-              <Nav.Link className={styles.navLink} as={Link} to="#">Sale</Nav.Link>
+              <Nav.Link className={styles.navLink} as={Link} to="/store/sale">Sale</Nav.Link>
             </Nav>
             {/* AUTH NAVLINKS */}
             <Nav>

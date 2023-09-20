@@ -12,6 +12,7 @@ import Signup from './pages/auth/Signup';
 import Login from './pages/auth/Login';
 import Dashboard from './pages/auth/Dashboard';
 import ProductsMenu from './pages/product/ProductsMenu';
+import ProductSaleMenu from './pages/product/ProductSaleMenu';
 import ProductDetail from './pages/product/ProductDetail';
 
 function App() {
@@ -59,6 +60,7 @@ function App() {
         {/* PRODUCTS API */}
         <Route path="store">
           <Route path="products" element={<ProductsMenu />} />
+          <Route path="sale" element={<ProductSaleMenu />} />
           <Route path="product">
             <Route path=":id" element={<ProductDetail addNewProductToCart={addNewProductToCart}/>}/>
           </Route>

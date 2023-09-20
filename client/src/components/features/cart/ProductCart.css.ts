@@ -40,10 +40,13 @@ export const cartFooter = style({
   justifyContent: "space-between",
   alignItems: "center",
   backgroundColor: vars.colors.primary,
-  padding: `${vars.space['7x']} ${vars.space['4x']}`,
+  padding: `${vars.space['6x']} ${vars.space['4x']}`,
   borderTop: `2px solid ${vars.colors.highlightDark}`
 })
 
 export const cartFooterTotal = style({
-  fontSize: vars.fontSizes['0x']
+  fontSize: vars.fontSizes['0x'],
+  fontWeight: vars.fontWeights.bold,
+  margin: 0,
+  paddingLeft: vars.space['0x'] 
 })

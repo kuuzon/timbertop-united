@@ -8,11 +8,9 @@ import TuLoader from '../../components/common/TuLoader';
 import productService from '../../services/productService';
 import ProductsList from '../../components/features/products/ProductsList';
 
-function ProductsMenu() {
-  // HOOK: CONTEXT FOR AUTH
+function ProductSaleMenu() {
   const { user } = useAuth();
-
-  // HOOK: SETTING COMPONENT STATE (& init values)
+  // HOOK: SETTING COMPONENT STATE
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
@@ -39,7 +37,7 @@ function ProductsMenu() {
   async function fetchCurrency() {
     try {
       // API Request (refactored)
-      const response = await productService.getAll();
+      const response = await productService.getOnSale();
       const data = await response.data;
       console.log(data);
       setData(data);
@@ -70,7 +68,7 @@ function ProductsMenu() {
       </Container>
     )
   }
-
+  
   // DEFAULT LOAD: SUCCESS API CALL
   return (
     <Container className="text-center mt-4">
@@ -88,4 +86,4 @@ function ProductsMenu() {
   )
 }
 
-export default ProductsMenu
+export default ProductSaleMenu

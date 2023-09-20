@@ -18,6 +18,12 @@ export const productGrid = style({
   }
 })
 
+export const productSnapshot = style({
+  width: "100%",
+  aspectRatio: "1 / 1",
+  objectFit: "contain",
+})
+
 export const productDetails = style({
   display: "flex",
   flexDirection: "column",
