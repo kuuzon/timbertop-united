@@ -26,7 +26,11 @@ function App() {
     const duplicateCartProduct = cartProducts.filter(product => product.id == newCartProduct.id)
     if (duplicateCartProduct.length > 0){
       setCartProducts(cartProducts.map(product => product.id === duplicateCartProduct[0].id 
-        ? {...product, quantity: product.quantity + newCartProduct.quantity}
+        ? {
+            ...product, 
+            quantity: product.quantity + newCartProduct.quantity,
+            totalPrice: product.totalPrice + newCartProduct.totalPrice
+          }
         : product
       ))
     // UNIQUE PRODUCT ADDED TO CART
