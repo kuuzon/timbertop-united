@@ -14,6 +14,8 @@ import Dashboard from './pages/auth/Dashboard';
 import ProductsMenu from './pages/product/ProductsMenu';
 import ProductSaleMenu from './pages/product/ProductSaleMenu';
 import ProductDetail from './pages/product/ProductDetail';
+import AddProduct from './pages/product/AddProduct';
+import EditProduct from './pages/product/EditProduct';
 
 function App() {
   // APP-LEVEL STATE
@@ -63,6 +65,11 @@ function App() {
           <Route path="sale" element={<ProductSaleMenu />} />
           <Route path="product">
             <Route path=":id" element={<ProductDetail addNewProductToCart={addNewProductToCart}/>}/>
+            {/* PRIVATE WRITE PRODUCT ROUTES */}
+            <Route element={<PrivateRoutes />}>
+              <Route path="add" element={<AddProduct />} />
+              <Route path="edit/:id" element={<EditProduct />} />
+            </Route>
           </Route>
         </Route>
         {/* ERROR PAGES */}
