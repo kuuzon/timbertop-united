@@ -28,7 +28,7 @@ function ProductDetail({ addNewProductToCart }) {
   const [productCount, setProductCount] = useState(0)
 
   // Destructure data state nested object properties & instance of useNavigate class (NOTE IMAGE DESTRUCTURED)
-  const { id, name, description, category, price, size, texture, onSale, isAvailable, image } = productData;
+  const { id, name, description, category, price, sizes, texture, onSale, isAvailable, image } = productData;
 
   // HOOK: Prevention of useEffect calling TWICE (React v18)
   const effectRan = useRef(false);

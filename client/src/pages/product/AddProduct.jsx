@@ -13,7 +13,7 @@ function AddProduct() {
     description: "",
     category: "",
     price: 0,
-    size: "",
+    sizes: "",
     texture: "",
     onSale: false,
     isAvailable: true,
@@ -22,7 +22,7 @@ function AddProduct() {
   const [loading, setLoading] = useState(false);
 
   // Destructure data state nested object properties & instance of useNavigate class
-  const { name, description, category, price, size, texture, onSale, isAvailable } = productData;
+  const { name, description, category, price, sizes, texture, onSale, isAvailable } = productData;
   const navigate = useNavigate();
 
   // FORM FUNCTIONS
@@ -108,18 +108,15 @@ function AddProduct() {
 
             {/* 4B: SIZE */}
             <Col lg={4} md={4} sm={12}>
-              <Form.Label>Product size</Form.Label>
+              <Form.Label>Product sizing range</Form.Label>
               <Form.Control 
                 as='select'
-                name='size'
-                value={size}
+                name='sizes'
+                value={sizes}
                 onChange={ handleTextChange }
               >
-                <option value="xs">Extra Small</option>
-                <option value="s">Small</option>
-                <option value="m">Medium</option>
-                <option value="l">Large</option>
-                <option value="xl">Extra Large</option>
+                <option value="range">XS to XL</option>
+                <option value="single">One Size Fits All</option>
               </Form.Control>
             </Col>
 

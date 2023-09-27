@@ -1,6 +1,7 @@
 // Import Joi Validation module
 const Joi = require('joi');
 const ApiError = require('../utilities/ApiError');
+const debugJoi = require('debug')('app:joi');
 
 module.exports = {
   // [1] POST Validation
@@ -9,10 +10,10 @@ module.exports = {
     const schema = Joi.object({
       name: Joi.string().min(3).max(50).required(),
       description: Joi.string().min(3).max(2000).required(),
-      category: Joi.string().min(3).max(50).required(),
+      category: Joi.string().required(),
       price: Joi.number().required(),
-      size: Joi.string().min(3).max(100).required(),
-      texture: Joi.string().min(3).max(100).required(),
+      sizes: Joi.string().min(3).max(50).required(),
+      texture: Joi.string().min(3).max(50).required(),
       onSale: Joi.boolean().required(),
       isAvailable: Joi.boolean().required(),
       image: Joi.any(),
@@ -24,6 +25,7 @@ module.exports = {
 
     // ON VALIDATION ERROR: We call Error Middleware & Pass Bad Request with Dynamic Validation Error Message
     if ( error ) {
+      debugJoi(error);
       switch(error.details[0].context.key){
         case 'name':
           next(ApiError.badRequest('You must provide a valid name for the product'))
@@ -31,9 +33,9 @@ module.exports = {
 
         case 'description':
         case 'category':
-        case 'size':
+        case 'sizes':
         case 'texture':
-          next(ApiError.badRequest('You must provide a valid product information including description, category, size and/or texture'))
+          next(ApiError.badRequest('You must provide a valid product information including description, category, sizes and/or texture'))
           break    
 
         case 'price':
