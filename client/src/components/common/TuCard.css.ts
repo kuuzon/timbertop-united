@@ -54,6 +54,6 @@ export const authForm = style({
 export const cardTitle = style({
   color: vars.colors.brand,
   paddingBottom: "1rem",
-  fontSize: "2em",
+  fontSize: vars.fontSizes['3x'],
   fontWeight: vars.fontWeights.bold
 })

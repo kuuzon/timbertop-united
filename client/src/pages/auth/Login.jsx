@@ -1,12 +1,14 @@
 import { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { Form, Spinner } from 'react-bootstrap';
 
 // Import custom modules
-import * as styles from './Login.css'
 import authService from '../../services/authService';
 import useAuth from '../../hooks/useAuth';
 import TuCard from '../../components/common/TuCard'
+import TuLabel from '../../components/common/TuLabel'
+import TuInput from '../../components/common/TuInput'
+import TuInlineLink from '../../components/common/TuInlineLink';
 import TuButton from '../../components/common/TuButton';
 
 const Login = () => {
@@ -49,14 +51,14 @@ const Login = () => {
       <Form onSubmit={ handleSubmit }>
         {/* GROUP 1: EMAIL */}
         <Form.Group className="mb-3" controlId="email">
-          <Form.Label className={styles.styledLabel}>Email</Form.Label>
-          <Form.Control className={styles.styledInput}  type="email" placeholder="Enter email" name="email" value={email} onChange={ handleTextChange } required />
+          <TuLabel>Email</TuLabel>
+          <TuInput type="email" placeholder="Enter email" name="email" value={email} onChange={ handleTextChange } required />
         </Form.Group>
 
         {/* GROUP 2: PASSWORD */}
         <Form.Group className="mb-3" controlId="password">
-          <Form.Label className={styles.styledLabel}>Password</Form.Label>
-          <Form.Control className={styles.styledInput}  type="password" placeholder="Enter password" name="password" value={password} onChange={ handleTextChange } required />
+          <TuLabel>Password</TuLabel>
+          <TuInput type="password" placeholder="Enter password" name="password" value={password} onChange={ handleTextChange } required />
         </Form.Group>
 
         {/* SUBMIT BUTTON */}
@@ -70,11 +72,11 @@ const Login = () => {
           /> : 'Submit'}
         </TuButton>
       </Form>
-      <div className={styles.userNav}>
-        <span>Not a member? &nbsp; 
-          <Link to="/signup">Sign Up</Link>
-        </span>
-      </div>
+      <TuInlineLink 
+        to="/signup"
+        descriptiveText="Not a member? &nbsp;"
+        linkText="Sign Up"
+      />
     </TuCard>
   )
 }
