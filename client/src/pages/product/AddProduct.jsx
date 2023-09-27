@@ -7,6 +7,8 @@ import TuCard from "../../components/common/TuCard";
 import TuButton from "../../components/common/TuButton";
 
 function AddProduct() {
+  const navigate = useNavigate();
+  
   // HOOK: SETTING COMPONENT STATE (& init values)
   const [productData, setProductData] = useState({
     name: "",
@@ -23,7 +25,6 @@ function AddProduct() {
 
   // Destructure data state nested object properties & instance of useNavigate class
   const { name, description, category, price, sizes, texture, onSale, isAvailable } = productData;
-  const navigate = useNavigate();
 
   // FORM FUNCTIONS
   // [1] handleTextChange will handle change in state value event for TEXT data
@@ -52,8 +53,8 @@ function AddProduct() {
     } catch (err) {
       console.log(err?.response);
       window.scroll({top: 0, left: 0, behavior: 'smooth' });
+      setTimeout(() => {setLoading(false)}, 1000);
     }
-    setLoading(false);
   };
 
   return (

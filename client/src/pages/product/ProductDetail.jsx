@@ -1,13 +1,15 @@
 import { useState, useEffect, useRef } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { Container } from 'react-bootstrap';
+import { Container, Spinner } from 'react-bootstrap';
 
 // Local modules
 import * as styles from "./ProductDetail.css"
 import useAuth from '../../hooks/useAuth';
 import productService from '../../services/productService';
 import ProductCounter from '../../components/features/cart/ProductCounter';
+import TuLoader from '../../components/common/TuLoader';
 import TuButton from '../../components/common/TuButton';
+import TuLink from '../../components/common/TuLink';
 
 function ProductDetail({ addNewProductToCart }) {
   // HOOK: CONTEXT FOR AUTH
@@ -77,6 +79,26 @@ function ProductDetail({ addNewProductToCart }) {
     navigate('/store/products');
   }
 
+  // [3] DELETION OF DOCUMENT
+  const handleDeleteClick = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    try {
+      // Call API - must match server route + pass id to route
+      const response = await productService.del(id);
+      console.log(response);
+
+      // onSuccess - Redirect
+      setLoading(false);
+      navigate('/store/products');
+      
+    } catch (err) {
+      console.log(err?.response);
+      setError(true);
+      window.scroll({top: 0, left: 0, behavior: 'smooth' });
+    }
+  }
+
   // CONDITIONAL LOAD: ERROR
   if (error) {
     return (
@@ -90,7 +112,7 @@ function ProductDetail({ addNewProductToCart }) {
   if (loading) {
     return (
       <Container>
-        <p>Loading ...</p>
+        <TuLoader />
       </Container>
     )
   }
@@ -114,6 +136,19 @@ function ProductDetail({ addNewProductToCart }) {
           <TuButton onClick={handleAddToCart}>Add to Cart</TuButton>
         </div>
       </div>
+      <TuLink to={`/store/product/edit/${id}`}>Edit</TuLink>
+      <TuButton
+        onClick={handleDeleteClick} 
+        loadingState={loading}
+      >
+        {loading ? <Spinner
+          as="span"
+          animation="border"
+          size="sm"
+          role="status"
+          aria-hidden="true"
+        /> : 'Delete'}
+      </TuButton>
     </Container>
   )
 }
