@@ -31,7 +31,7 @@ const Header = ({ cartProducts, handleToggleTheme }) => {
             </div>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-          <Navbar.Collapse id="responsive-navbar-nav" >
+          <Navbar.Collapse className="text-center my-2" id="responsive-navbar-nav" >
             {/* STANDARD NAVLINKS */}
             <Nav className="me-auto">
               <Nav.Link className={styles.navLink} as={Link} to="/store/products">Products</Nav.Link>
