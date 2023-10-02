@@ -24,7 +24,7 @@ function ProductsMenu() {
   useEffect(() => {
     console.log("Effect Ran");
     if (effectRan.current === false) {
-      fetchCurrency();
+      fetchProducts();
       setLoading(false);
 
       // CLEAN UP FUNCTION
@@ -36,7 +36,7 @@ function ProductsMenu() {
   }, []);
 
   // COMPONENT FUNCTIONS
-  async function fetchCurrency() {
+  async function fetchProducts() {
     try {
       // API Request (refactored)
       const response = await productService.getAll();
