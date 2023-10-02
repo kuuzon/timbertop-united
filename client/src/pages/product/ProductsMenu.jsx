@@ -83,7 +83,7 @@ function ProductsMenu() {
       </div>}
 
       {/* Currency Menu */}
-      {data.length > 0 && <ProductsList title="Kits & Apparel" products={data} />}
+      {data.length > 0 && <ProductsList products={data} />}
     </Container>
   )
 }
