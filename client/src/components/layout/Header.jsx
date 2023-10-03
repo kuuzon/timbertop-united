@@ -38,7 +38,7 @@ const Header = ({ cartProducts, handleToggleTheme }) => {
               <Nav.Link className={styles.navLink} as={Link} to="/store/sale">Sale</Nav.Link>
             </Nav>
             {/* AUTH NAVLINKS */}
-            <Nav>
+            <Nav className={styles.buttonNav}>
               <TuButton onClick={() => { handleToggleTheme() }}>Theme</TuButton>
               {!user && <TuLink to="/signup" >Sign&nbsp;Up</TuLink>}
               {!user && <TuLink to="/login"  >Log&nbsp;In</TuLink>}

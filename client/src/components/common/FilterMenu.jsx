@@ -1,14 +1,14 @@
-import { Fragment } from "react"
+import * as styles from './FilterMenu.css'
 import TuLink from "./TuLink";
 
 function FilterMenu({ productLinks }) {
   return (
-    <Fragment>
-      <TuLink smLink outline to={'/store/products'}>All</TuLink>
+    <div className={styles.menuContainer}>
+      <TuLink mdLink outline to={'/store/products'}>All</TuLink>
       {productLinks.map(link => (
-        <TuLink key={`link-${link}`} smLink outline to={`/store/products/${link}`}>{link}</TuLink>
+        <TuLink key={`link-${link}`} mdLink outline to={`/store/products/${link}`}>{link}</TuLink>
       ))}
-    </Fragment>
+    </div>
   )
 }
 

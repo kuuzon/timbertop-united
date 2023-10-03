@@ -4,7 +4,7 @@ import { vars } from '../../styles/themes.css';
 export const button = style({
   display: "inline-flex",
   flexDirection: "column",
-  margin: vars.space['1x'],
+  margin: 0,
   borderRadius: 0,
   border: "3px solid",
   textTransform: "uppercase",
@@ -15,11 +15,16 @@ export const button = style({
 })
 
 export const smBtn = style({
+  fontSize: "0.8em",
+  padding: `0 ${vars.space['1x']}`,
+})
+
+export const mdBtn = style({
   fontSize: "0.9em",
   padding: `${vars.space['0x']} ${vars.space['1x']}`,
 })
 
-export const mdBtn = style({
+export const lgBtn = style({
   fontSize: "1em",
   padding: `${vars.space['1x']} ${vars.space['2x']}`,
 })

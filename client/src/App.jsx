@@ -24,7 +24,7 @@ function App() {
   // APP-LEVEL STATE
   const [apiProducts, setApiProducts] = useState([]);
   const [cartProducts, setCartProducts] = useState([]);
-  const [productLinks, setProductLinks] = useState([
+  const [productLinks] = useState([
     "kits",
     "training", 
     "apparel",

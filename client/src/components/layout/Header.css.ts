@@ -64,3 +64,7 @@ export const navLink = style({
     color: vars.colors.brandLight,
   },
 })
+
+export const buttonNav = style({
+  gap: vars.space['1x']
+})

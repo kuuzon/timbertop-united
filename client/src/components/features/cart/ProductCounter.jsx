@@ -1,3 +1,6 @@
+import * as styles from './ProductCounter.css'
+import TuButton from "../../common/TuButton"
+
 function ProductCounter({ productCount, setProductCount }) {
   function handleIncrement(e){
     e.preventDefault()
@@ -11,10 +14,10 @@ function ProductCounter({ productCount, setProductCount }) {
   }
 
   return (
-    <div>
-      <button onClick={handleDecrement}>-</button>
-      <p>{productCount}</p>
-      <button onClick={handleIncrement}>+</button>
+    <div className={styles.btnBox}>
+      <TuButton smBtn onClick={handleDecrement}>-</TuButton>
+      <span className={styles.counterBox}>{productCount}</span>
+      <TuButton smBtn onClick={handleIncrement}>+</TuButton>
     </div>
   )
 }
