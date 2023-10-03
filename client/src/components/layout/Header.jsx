@@ -31,7 +31,7 @@ const Header = ({ cartProducts, handleToggleTheme }) => {
             </div>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-          <Navbar.Collapse className="text-center my-2" id="responsive-navbar-nav" >
+          <Navbar.Collapse className="text-center" id="responsive-navbar-nav" >
             {/* STANDARD NAVLINKS */}
             <Nav className="me-auto">
               <Nav.Link className={styles.navLink} as={Link} to="/store/products">Products</Nav.Link>
@@ -43,7 +43,7 @@ const Header = ({ cartProducts, handleToggleTheme }) => {
               {!user && <TuLink to="/signup" >Sign&nbsp;Up</TuLink>}
               {!user && <TuLink to="/login"  >Log&nbsp;In</TuLink>}
               {user && <TuLink to="/dashboard" >Dashboard</TuLink>}
-              {user && <TuButton onClick={() => { logout() }} outline navbar>Logout</TuButton>}
+              {user && <TuButton onClick={() => { logout() }}  >Logout</TuButton>}
               {<TuButton onClick={handleShow}  ><RiShoppingCartFill /></TuButton>}
             </Nav>
           </Navbar.Collapse>

@@ -8,6 +8,6 @@ export const gridContainer = style({
 
 export const productGrid = style({
   display: "grid",
-  gap: "1rem",
+  gap: "2rem",
   gridTemplateColumns: "repeat(auto-fill, minmax(18rem, 1fr))",
 })

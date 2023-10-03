@@ -1,4 +1,4 @@
-import { style, globalStyle } from '@vanilla-extract/css';
+import { style } from '@vanilla-extract/css';
 import { vars } from '../../styles/themes.css';
 
 export const navbar = style({
@@ -17,6 +17,7 @@ export const brandLink = style({
   fontSize: vars.fontSizes["0x"],
   textTransform: "uppercase",
   transition: "0.2s ease-in-out",
+  padding: 0,
 
   ":focus": {
     color: vars.colors.complementary,

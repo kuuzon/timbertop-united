@@ -2,15 +2,16 @@ import PropTypes from 'prop-types'
 import * as styles from './TuButton.css'
 import { Button } from 'react-bootstrap'
 
-const TuButton = ({ children, loadingState, onClick, outline, navbar }) => {
+const TuButton = ({ children, smBtn, loadingState, onClick }) => {
   return (
     <Button 
-      className={styles.button}
+      className={`
+        ${styles.button} 
+        ${smBtn ? styles.smBtn : styles.mdBtn}
+      `}
       type={onClick ? "button" : "submit"} 
       onClick={onClick}
       disabled={loadingState ? 1 : 0}
-      outline={outline ? 1 : 0}
-      navbar={navbar ? 1 : 0}
     >
       {children}
     </Button>
@@ -19,10 +20,9 @@ const TuButton = ({ children, loadingState, onClick, outline, navbar }) => {
 
 TuButton.propTypes = {
   children: PropTypes.any,
+  smBtn: PropTypes.bool,
   loadingState: PropTypes.bool,
-  outline: PropTypes.bool,
-  navbar: PropTypes.bool,
-  type: PropTypes.string,
+  onClick: PropTypes.func,
 }
 
 export default TuButton
