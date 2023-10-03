@@ -2,29 +2,37 @@ import { useState, useEffect, useRef } from 'react';
 import Container from 'react-bootstrap/Container';
 
 // Local modules
+import * as styles from './ProductsMenu.css'
 import useAuth from '../../hooks/useAuth';
+import FilterMenu from '../../components/common/FilterMenu';
 import TuLink from '../../components/common/TuLink';
 import TuLoader from '../../components/common/TuLoader';
-import productService from '../../services/productService';
 import ProductsList from '../../components/features/products/ProductsList';
 
-function ProductsMenu() {
+function ProductsMenu({ products, fetchProducts, productLinks, productCategory }) {
   // HOOK: CONTEXT FOR AUTH
   const { user } = useAuth();
 
   // HOOK: SETTING COMPONENT STATE (& init values)
-  const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
 
-  // HOOK: Prevention of useEffect calling TWICE (React v18)
-  const effectRan = useRef(false);
-
   // HOOK: ON-LOAD SIDE EFFECTS
+  const effectRan = useRef(false);
   useEffect(() => {
     console.log("Effect Ran");
     if (effectRan.current === false) {
-      fetchProducts();
+      try {
+        fetchProducts();
+
+      } catch (err) {
+        console.log(err?.response);
+        if(err.response.status === 500) {
+          setError(true); 
+        } else {
+          setError(false);
+        }
+      }
       setLoading(false);
 
       // CLEAN UP FUNCTION
@@ -33,25 +41,7 @@ function ProductsMenu() {
         effectRan.current = true;
       }
     }
-  }, []);
-
-  // COMPONENT FUNCTIONS
-  async function fetchProducts() {
-    try {
-      // API Request (refactored)
-      const response = await productService.getAll();
-      const data = await response.data;
-      console.log(data);
-      setData(data);
-    } catch(err) {
-      console.log(err?.response);
-      if(err.response.status === 500) {
-        setError(true); 
-      } else {
-        setError(false);
-      }
-    }
-  }
+  }, [fetchProducts]);
 
   // CONDITIONAL LOAD: ERROR
   if (error) {
@@ -74,16 +64,21 @@ function ProductsMenu() {
   // DEFAULT LOAD: SUCCESS API CALL
   return (
     <Container className="text-center mt-4">
-      <h1>Timbertop United Kits &amp; Apparel</h1>
-      <p>Get the official 2023/24 Timbertop United Kits, inspired by the iconic TU anniversary crest - celebrating its 20th anniversary</p>
+      <h1 className={styles.menuTitle}>{productCategory}</h1>
+
+      {/* FILTER LINK MENU */}
+      <Container className="my-4">
+        <FilterMenu productLinks={productLinks} />
+      </Container>
 
       {/* ADMIN SECTION: AUTHORISATION REQUIRED */}
       { user && <div className="admin-section text-center mt-4">
         <TuLink to="#">Add Product</TuLink>
       </div>}
 
-      {/* Currency Menu */}
-      {data.length > 0 && <ProductsList products={data} />}
+      {/* Dynamic Products Menu */}
+      {products.length === 0 && <h4 className={styles.productsWarning}>No {productCategory} gear available</h4>}
+      {products.length > 0 && <ProductsList products={products} />}
     </Container>
   )
 }

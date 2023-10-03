@@ -6,21 +6,13 @@ export const navlink = style({
   flexDirection: "column",
   textDecoration: "none",
   margin: vars.space['1x'],
-  color: vars.colors.primary,
-  backgroundColor: vars.colors.complementary,
   borderRadius: 0,
-  border: `3px ${vars.colors.complementary} solid`,
+  border: "3px solid",
   textTransform: "uppercase",
   fontFamily: vars.fonts.brand,
   fontWeight: vars.fontWeights.bolder,
   textAlign: "center",
-  justifyContent: "center",
-
-  ":hover": {
-    color: vars.colors.complementary,
-    backgroundColor: vars.colors.primary,
-    border: `3px ${vars.colors.complementary} solid`,
-  }
+  justifyContent: "center"
 })
 
 export const smLink = style({
@@ -31,4 +23,28 @@ export const smLink = style({
 export const mdLink = style({
   fontSize: "1em",
   padding: `${vars.space['1x']} ${vars.space['2x']}`,
+})
+
+export const filledLink = style({
+  color: vars.colors.primary,
+  backgroundColor: vars.colors.complementary,
+  borderColor: vars.colors.complementary,
+
+  ":hover": {
+    color: vars.colors.complementary,
+    backgroundColor: vars.colors.primary,
+    borderColor: vars.colors.complementary,
+  }
+})
+
+export const outlineLink = style({
+  color: vars.colors.complementary,
+  backgroundColor: vars.colors.primary,
+  borderColor: vars.colors.complementary,
+
+  ":hover": {
+    color: vars.colors.primary,
+    backgroundColor: vars.colors.complementary,
+    borderColor: vars.colors.complementary,
+  }
 })

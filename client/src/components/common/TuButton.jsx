@@ -2,12 +2,13 @@ import PropTypes from 'prop-types'
 import * as styles from './TuButton.css'
 import { Button } from 'react-bootstrap'
 
-const TuButton = ({ children, smBtn, loadingState, onClick }) => {
+const TuButton = ({ children, smBtn, outline, loadingState, onClick }) => {
   return (
     <Button 
       className={`
         ${styles.button} 
         ${smBtn ? styles.smBtn : styles.mdBtn}
+        ${outline ? styles.outlineBtn : styles.filledBtn}
       `}
       type={onClick ? "button" : "submit"} 
       onClick={onClick}

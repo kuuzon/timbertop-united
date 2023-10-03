@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import Container from 'react-bootstrap/Container';
 
 // Local modules
+import * as styles from './ProductSaleMenu.css'
 import useAuth from '../../hooks/useAuth';
 import TuLink from '../../components/common/TuLink';
 import TuLoader from '../../components/common/TuLoader';
@@ -72,15 +73,14 @@ function ProductSaleMenu() {
   // DEFAULT LOAD: SUCCESS API CALL
   return (
     <Container className="text-center mt-4">
-      <h1>Timbertop United Kits &amp; Apparel</h1>
-      <p>Get the official 2023/24 Timbertop United Kits, inspired by the iconic TU anniversary crest - celebrating its 20th anniversary</p>
+      <h1 className={styles.menuTitle}>Sale</h1>
 
       {/* ADMIN SECTION: AUTHORISATION REQUIRED */}
       { user && <div className="admin-section text-center mt-4">
         <TuLink to="#">Add Product</TuLink>
       </div>}
 
-      {/* Currency Menu */}
+      {/* Sale Menu */}
       {data.length > 0 && <ProductsList title="Kits & Apparel" products={data} />}
     </Container>
   )

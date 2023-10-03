@@ -1,6 +1,9 @@
 // EXTERNAL LIBRARIES
 import { Routes, Route } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useCallback } from 'react';
+
+// LOCAL SERVICES
+import productService from './services/productService';
 
 // LOCAL MODULES
 import Layout from './components/layout/Layout';
@@ -19,7 +22,22 @@ import EditProduct from './pages/product/EditProduct';
 
 function App() {
   // APP-LEVEL STATE
+  const [apiProducts, setApiProducts] = useState([]);
   const [cartProducts, setCartProducts] = useState([]);
+  const [productLinks, setProductLinks] = useState([
+    "kits",
+    "training", 
+    "apparel",
+    "accessories"
+  ]);
+
+  // POPULATING API PRODUCTS
+  const handleFetchProducts = useCallback(async () => {
+    const response = await productService.getAll();
+    const data = await response.data;
+    console.log(data);
+    setApiProducts(data);
+  }, [])
 
   // FUNCTION TO SAVE, UPDATE + REMOVE CART PRODUCTS FROM LOCAL STORAGE
 
@@ -61,7 +79,25 @@ function App() {
         </Route>
         {/* PRODUCTS API */}
         <Route path="store">
-          <Route path="products" element={<ProductsMenu />} />
+          <Route path="products">
+            <Route index element={<ProductsMenu     
+              products={apiProducts} fetchProducts={handleFetchProducts} productLinks={productLinks} productCategory="all" />}
+            />
+            {productLinks.map(productLink => (
+              <Route 
+                key={`link-${productLink}`} 
+                path={productLink} 
+                element={<ProductsMenu 
+                  products={apiProducts.filter(product => 
+                    product.category == productLink
+                  )}
+                  fetchProducts={handleFetchProducts}
+                  productLinks={productLinks}
+                  productCategory={productLink}
+                />}
+              />
+            ))}
+          </Route>
           <Route path="sale" element={<ProductSaleMenu />} />
           <Route path="product">
             <Route path=":id" element={<ProductDetail addNewProductToCart={addNewProductToCart}/>}/>

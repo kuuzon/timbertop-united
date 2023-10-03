@@ -5,21 +5,13 @@ export const button = style({
   display: "inline-flex",
   flexDirection: "column",
   margin: vars.space['1x'],
-  color: vars.colors.primary,
-  backgroundColor: vars.colors.complementary,
   borderRadius: 0,
-  border: `3px ${vars.colors.complementary} solid`,
+  border: "3px solid",
   textTransform: "uppercase",
   fontFamily: vars.fonts.brand,
   fontWeight: vars.fontWeights.bolder,
   textAlign: "center",
   justifyContent: "center",
-
-  ":hover": {
-    color: vars.colors.complementary,
-    backgroundColor: vars.colors.primary,
-    border: `3px ${vars.colors.complementary} solid`,
-  }
 })
 
 export const smBtn = style({
@@ -30,4 +22,28 @@ export const smBtn = style({
 export const mdBtn = style({
   fontSize: "1em",
   padding: `${vars.space['1x']} ${vars.space['2x']}`,
+})
+
+export const filledBtn = style({
+  color: vars.colors.primary,
+  backgroundColor: vars.colors.complementary,
+  borderColor: vars.colors.complementary,
+
+  ":hover": {
+    color: vars.colors.complementary,
+    backgroundColor: vars.colors.primary,
+    borderColor: vars.colors.complementary,
+  }
+})
+
+export const outlineBtn = style({
+  color: vars.colors.complementary,
+  backgroundColor: vars.colors.primary,
+  borderColor: vars.colors.complementary,
+
+  ":hover": {
+    color: vars.colors.primary,
+    backgroundColor: vars.colors.complementary,
+    borderColor: vars.colors.complementary,
+  }
 })
