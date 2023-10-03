@@ -2,17 +2,14 @@ import { style } from '@vanilla-extract/css';
 import { vars } from '../../styles/themes.css';
 
 export const navlink = style({
-  display: "inline-flex",
-  flexDirection: "column",
+  display: "inline-block",
   textDecoration: "none",
-  margin: 0,
   borderRadius: 0,
   border: "3px solid",
   textTransform: "uppercase",
   fontFamily: vars.fonts.brand,
   fontWeight: vars.fontWeights.bolder,
   textAlign: "center",
-  justifyContent: "center",
 })
 
 export const smLink = style({

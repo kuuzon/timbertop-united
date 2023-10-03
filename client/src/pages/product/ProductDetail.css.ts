@@ -9,6 +9,7 @@ export const productBox = style({
 })
 
 export const productBoxLeft = style({
+  margin: `${vars.space["4x"]} 0`,
   height: "100%",
   width: "60%",
 })

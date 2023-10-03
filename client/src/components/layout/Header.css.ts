@@ -50,6 +50,10 @@ export const brandSub = style({
   fontWeight: vars.fontWeights.light,
 })
 
+export const hamburgerBtn = style({
+  color: vars.colors.primaryContrast
+})
+
 export const navLink = style({
   color: vars.colors.complementary,
   fontSize: vars.fontSizes["0x"],
@@ -66,5 +70,6 @@ export const navLink = style({
 })
 
 export const buttonNav = style({
-  gap: vars.space['1x']
+  gap: vars.space['1x'],
+  
 })

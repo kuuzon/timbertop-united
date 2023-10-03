@@ -2,16 +2,13 @@ import { style } from '@vanilla-extract/css';
 import { vars } from '../../styles/themes.css';
 
 export const button = style({
-  display: "inline-flex",
-  flexDirection: "column",
-  margin: 0,
+  display: "inline-block",
   borderRadius: 0,
   border: "3px solid",
   textTransform: "uppercase",
   fontFamily: vars.fonts.brand,
   fontWeight: vars.fontWeights.bolder,
   textAlign: "center",
-  justifyContent: "center",
 })
 
 export const smBtn = style({
