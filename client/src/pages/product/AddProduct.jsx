@@ -76,7 +76,7 @@ function AddProduct() {
         {/* GROUP 2: DESCRIPTION */}
         <Form.Group className="mb-3">
           <Form.Label>Product description</Form.Label>
-          <Form.Control type="text" placeholder="Enter product description" name="description" value={description} onChange={ handleTextChange } />
+          <Form.Control type="text" as='textarea' placeholder="Enter product description" name="description" value={description} onChange={ handleTextChange } />
         </Form.Group>
 
         {/* GROUP 3: CATEGORY */}
