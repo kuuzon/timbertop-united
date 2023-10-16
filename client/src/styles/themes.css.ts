@@ -107,7 +107,6 @@ export const lightTheme = createTheme(colors, {
   success: twColors.green[400],
   warning: twColors.amber[400],
   error: twColors.rose[600]
-
 });
 
 export const darkTheme = createTheme(colors, {

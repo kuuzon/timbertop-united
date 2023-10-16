@@ -9,6 +9,8 @@ export const button = style({
   fontFamily: vars.fonts.brand,
   fontWeight: vars.fontWeights.bolder,
   textAlign: "center",
+  verticalAlign: "middle",
+  minHeight: 0,
 })
 
 export const smBtn = style({

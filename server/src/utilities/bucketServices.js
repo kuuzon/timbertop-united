@@ -1,9 +1,9 @@
 // Import in modules
 const { bucket } = require('../config/db');
+const { checkServerFile, deleteServerFile } = require("../utilities/serverFileServices")
 const debugBucket = require('debug')('app:bucket');
 const config = require("../config/config");
 const uuid = require('uuid');
-const { checkServerFile, deleteServerFile } = require("../utilities/serverFileServices")
 
 module.exports = {
   async storageBucketUpload(filename) {

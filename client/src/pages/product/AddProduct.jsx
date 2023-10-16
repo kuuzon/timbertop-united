@@ -103,7 +103,7 @@ function AddProduct() {
               <Form.Label>Product price</Form.Label>
               <InputGroup>          
                 <InputGroup.Text id="price-dollar">$</InputGroup.Text>
-                <Form.Control type="number" aria-describedby="price-dollar" id="price-input" name="price" value={price} onChange={ handleTextChange } />
+                <Form.Control type="number" aria-describedby="price-dollar" id="price-input" name="price" placeholder="0" value={price} onChange={ handleTextChange } />
               </InputGroup>
             </Col>
 

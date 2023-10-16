@@ -10,6 +10,8 @@ export const navlink = style({
   fontFamily: vars.fonts.brand,
   fontWeight: vars.fontWeights.bolder,
   textAlign: "center",
+  verticalAlign: "middle",
+  minHeight: 0,
 })
 
 export const smLink = style({
