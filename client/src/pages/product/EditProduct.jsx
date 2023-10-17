@@ -233,13 +233,10 @@ function EditProduct() {
         </Form.Group>
 
         {/* GROUP 6A: CONDITIONAL PREVIEW OF IMAGE (File in DB) */}
-        { preview && !loading ? 
-          <div className={styles.previewContainer}>
-            <h6>Current Image</h6>
-            <img className={styles.previewImage} src={image} alt="preview"/>
-          </div>
-          : null 
-        }
+        { preview && !loading ? <div className={styles.previewContainer}>
+          <h6>Current Image</h6>
+          <img className={styles.previewImage} src={image} alt="preview"/>
+        </div> : null }
 
         {/* GROUP 6B: PRODUCT IMAGE */}
         <Form.Group className="mb-3" controlId="image">
