@@ -31,6 +31,7 @@ const auth = (req, res, next) => {
 }
 
 const admin = (req, res, next) => {
+  // 403 ERROR: FORBIDDEN
   // NOTE: Has access to req.user, as auth.js middleware exposes this data to subsequent middleware
   if (!req.user.isAdmin) {
     debugJWT(req.user);

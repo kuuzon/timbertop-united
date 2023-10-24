@@ -117,7 +117,7 @@ function EditProduct() {
   }
 
   // CONDITIONAL LOAD: LOADING
-  if (loading) {
+  if (loading && effectRan.current === false) {
     return (
       <Container>
         <TuLoader />
@@ -156,6 +156,7 @@ function EditProduct() {
             value={category}
             onChange={ handleTextChange }
           >
+            <option value="">Choose product category</option>
             <option value="kits">Kits</option>
             <option value="training">Training</option>
             <option value="apparel">Apparel</option>
@@ -184,6 +185,7 @@ function EditProduct() {
                 value={sizes}
                 onChange={ handleTextChange }
               >
+                <option value="">Choose sizing range</option>
                 <option value="range">XS to XL</option>
                 <option value="single">One Size Fits All</option>
               </Form.Control>

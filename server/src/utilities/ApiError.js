@@ -1,5 +1,3 @@
-// CUSTOM ERROR UTILITY CLASS
-// Import development debug tool
 const debugError500 = require('debug')('app:error500');
 
 class ApiError {
