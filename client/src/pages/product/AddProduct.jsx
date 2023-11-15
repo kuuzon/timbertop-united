@@ -90,7 +90,6 @@ function AddProduct() {
           >
             <option value="">Choose product category</option>
             <option value="kits">Kits</option>
-            <option value="kits">Kits</option>
             <option value="training">Training</option>
             <option value="apparel">Apparel</option>
             <option value="accessories">Accessories</option>

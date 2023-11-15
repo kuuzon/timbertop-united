@@ -6,22 +6,33 @@ const debugError500 = require('debug')('app:error500');
 
 try {
   dbStartup('Attempting database connection...');
-  // Imports of db credentials
-  var serviceAccount = require(config.db.serviceAccountKey);
-  
-  // Configure database services
-  admin.initializeApp({
-    // Set Application Default Credentials (ADC implicitly determines credentials from GOOGLE_APPLICATION_CREDENTIALS ENV)
-    credential: admin.credential.cert(serviceAccount),
-    // credential: admin.credential.applicationDefault(),
+  // Setup of db credentials & options
+  // DOCS: https://firebase.google.com/docs/reference/admin/node/firebase-admin.app
+  const serviceAccountObject = {
+    type: config.db.type,
+    project_id: config.db.project_id,
+    private_key_id: config.db.private_key_id,
+    private_key: config.db.private_key.replace(/\\n/g, "\n"),
+    client_email: config.db.client_email,
+    client_id: config.db.client_id,
+    auth_uri: config.db.auth_uri,
+    token_uri: config.db.token_uri,
+    auth_provider_x509_cert_url: config.db.auth_provider_x509_cert_url,
+    client_x509_cert_url: config.db.client_x509_cert_url,
+    universe_domain: config.db.universe_domain,
+  };
+  // OPTIONS: Grants admin access to Firebase services + bucket services
+  const firebaseAppOptions = {
+    credential: admin.credential.cert(serviceAccountObject),
     storageBucket: config.db.storageBucket
-  });
+  };
   
-  // Store core database functions in variable objects (these each represent its OWN API, as part of the wider admin SDK!)
+  // Initialise firebase services & set core database APIs
+  admin.initializeApp(firebaseAppOptions);
   const db = admin.firestore();
   const bucket = admin.storage().bucket();
   
-  // DB Ping function
+  // DB Ping function (dev testing)
   const dbPing = db.listCollections()
   .then(collections => {
     dbStartup("Connected to Cloud Firestore");
