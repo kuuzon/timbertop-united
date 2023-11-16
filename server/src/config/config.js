@@ -1,5 +1,6 @@
 module.exports = {
   // [A] PORT ENVs
+  env: process.env.NODE_ENV,
   port: process.env.PORT,
   
   // [B] FIREBASE ENVs

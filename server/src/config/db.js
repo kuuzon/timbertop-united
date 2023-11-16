@@ -32,17 +32,8 @@ try {
   const db = admin.firestore();
   const bucket = admin.storage().bucket();
   
-  // DB Ping function (dev testing)
-  const dbPing = db.listCollections()
-  .then(collections => {
-    dbStartup("Connected to Cloud Firestore");
-    for (let collection of collections) {
-      dbStartup(`DB collection: ${collection.id}`);
-    }
-  });
-
   // Export variable objects for use in our application
-  module.exports = { db, bucket, dbPing };
+  module.exports = { db, bucket };
 
 // DEBUG: Unhandled error will be logged to console
 } catch(err) {
