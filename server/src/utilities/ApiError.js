@@ -44,7 +44,7 @@ class ApiError {
   // [500] Internal Server Error
   // PARAMETERS: This takes two arguments - our custom message to the client + the error stack passed from the server/DB.  We will need this for debugging, so we console.log this out!
   static internal(msg, err) {
-    debugError500(err);
+    console.log(err);
     return new ApiError(500, `Internal Server Error: ${msg}`);
   }
 }
