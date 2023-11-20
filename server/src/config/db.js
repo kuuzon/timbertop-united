@@ -13,18 +13,20 @@ try {
   } else if(config.env = "production"){
     // DOCS: https://firebase.google.com/docs/reference/admin/node/firebase-admin.app
     serviceAccountKey = {
-      type: process.env.TYPE,
-      project_id: process.env.PROJECT_ID,
-      private_key_id: process.env.PRIVATE_KEY_ID,
-      client_id: process.env.CLIENT_ID,
-      auth_uri: process.env.AUTH_URI,
-      token_uri: process.env.TOKEN_URI,
-      auth_provider_x509_cert_url: process.env.AUTH_PROVIDER_X509_CERT_URL,
-      client_x509_cert_url: process.env.CLIENT_X509_CERT_URL,
-      client_email: process.env.CLIENT_EMAIL,
-      private_key: process.env.PRIVATE_KEY.replace(/\\n/g, "\n"),
+      type: config.db.type,
+      project_id: config.db.project_id,
+      private_key_id: config.db.private_key_id,
+      private_key: config.db.private_key,
+      client_email: config.db.client_email,
+      client_id: config.db.client_id,
+      auth_uri: config.db.auth_uri,
+      token_uri: config.db.token_uri,
+      auth_provider_x509_cert_url: config.db.auth_provider_x509_cert_url,
+      client_x509_cert_url: config.db.client_x509_cert_url,
+      universe_domain: config.db.universe_domain,
     };
   }
+  console.log(serviceAccountKey)
   // OPTIONS: Grants admin access to Firebase services + bucket services
   const firebaseAppOptions = {
     credential: admin.credential.cert(serviceAccountKey),
