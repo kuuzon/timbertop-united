@@ -49,7 +49,7 @@ app.use((req, res, next) => {
 app.use(apiErrorHandler);
 
 // Port setting in prod / dev
-if(config.env === "production"){
+if(config.env === "preview" || config.env === "production"){
   app.listen(config.port, () => console.log(`Server is running on port: ${config.port}`))
 
 // Port setting in dev

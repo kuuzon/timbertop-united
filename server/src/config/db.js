@@ -16,7 +16,6 @@ try {
       type: config.db.type,
       project_id: config.db.project_id,
       private_key_id: config.db.private_key_id,
-      private_key: config.db.private_key,
       client_email: config.db.client_email,
       client_id: config.db.client_id,
       auth_uri: config.db.auth_uri,
@@ -24,6 +23,7 @@ try {
       auth_provider_x509_cert_url: config.db.auth_provider_x509_cert_url,
       client_x509_cert_url: config.db.client_x509_cert_url,
       universe_domain: config.db.universe_domain,
+      private_key: process.env.PRIVATE_KEY.replace(/\\n/g, "\n"),
     };
   }
   // OPTIONS: Grants admin access to Firebase services + bucket services
