@@ -8,6 +8,7 @@
   "scripts": {
     "dev": "DEBUG=app* nodemon src/index",
     "devpc": "DEBUG=app* & nodemon src/index",
+    "preview": "DEBUG=app* node src/index",
     "prod": "node src/index",
     "client": "cd ../ && npm start --prefix client",
     "devstack": "concurrently -k \"yarn debug\" \"yarn client\"",
