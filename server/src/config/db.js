@@ -8,9 +8,9 @@ try {
   dbStartup('Attempting database connection...');
   // Setup of db credentials & options
   let serviceAccountKey;
-  if(config.env === "development" || config.env === "preview"){
+  if(config.env === "development" || config.env === "production"){
     serviceAccountKey = config.db.google_account_credentials;
-  } else if(config.env = "production"){
+  } else if(config.env = "preview"){
     // DOCS: https://firebase.google.com/docs/reference/admin/node/firebase-admin.app
     serviceAccountKey = {
       type: config.db.type,
@@ -26,7 +26,7 @@ try {
       universe_domain: config.db.universe_domain,
     };
   }
-  console.log(serviceAccountKey)
+  debugError500(serviceAccountKey)
   // OPTIONS: Grants admin access to Firebase services + bucket services
   const firebaseAppOptions = {
     credential: admin.credential.cert(serviceAccountKey),

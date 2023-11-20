@@ -38,6 +38,9 @@ app.use(fileUpload({ createParentPath: true }));
 app.use(morgan('dev'));
 
 // Main routing: http://localhost:5000/api/
+app.get('/', (req, res) => {
+  res.send('Welcome to Timbertop United API 👩‍💻');
+});
 app.use('/api', routes());
 
 // Not Found Route
