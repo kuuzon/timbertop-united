@@ -8,9 +8,9 @@ try {
   dbStartup('Attempting database connection...');
   // Setup of db credentials & options
   let serviceAccountKey;
-  if(config.env === "production"){
+  if(config.env === "development" || config.env === "preview"){
     serviceAccountKey = config.db.google_account_credentials;
-  } else if(config.env = "development"){
+  } else if(config.env = "production"){
     // DOCS: https://firebase.google.com/docs/reference/admin/node/firebase-admin.app
     serviceAccountKey = {
       type: config.db.type,
