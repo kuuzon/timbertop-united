@@ -5,6 +5,7 @@ module.exports = {
   
   // [B] FIREBASE ENVs
   db: {
+    google_account_credentials: process.env.GOOGLE_APPLICATION_CREDENTIALS,
     type: process.env.TYPE,
     project_id: process.env.PROJECT_ID,
     private_key_id: process.env.PRIVATE_KEY_ID,
@@ -17,7 +18,6 @@ module.exports = {
     client_x509_cert_url: process.env.CLIENT_X509_CERT_URL,
     universe_domain: process.env.UNIVERSE_DOMAIN,
     storageBucket: process.env.STORAGE_BUCKET_URL,
-    google_account_credentials: process.env.GOOGLE_APPLICATION_CREDENTIALS
   },
 
   // [C] AUTH ENVs

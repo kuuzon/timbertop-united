@@ -51,8 +51,7 @@ function ProductCart({ show, handleClose, cartProducts }) {
             {cartProducts.length > 0 && cartProducts.map( cartProduct => <ProductCartItem 
               key={cartProduct.id}
               product={cartProduct}
-            />
-            )}
+            />)}
           </div>
         </div>
         <div className="offcanvas-footer">

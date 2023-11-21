@@ -37,10 +37,12 @@ app.use(fileUpload({ createParentPath: true }));
 // Middlware to track our query performance, status & speed
 app.use(morgan('dev'));
 
-// Main routing: http://localhost:5000/api/
+// Main routing: 
+// BOOT ROUTE:
 app.get('/', (req, res) => {
   res.send('Welcome to Timbertop United API 👩‍💻');
 });
+// ROUTES PATH: http://localhost:5000/api/
 app.use('/api', routes());
 
 // Not Found Route
@@ -51,12 +53,8 @@ app.use((req, res, next) => {
 // Error Handler Middleware
 app.use(apiErrorHandler);
 
-// Port setting in prod / dev
-if(config.env === "preview" || config.env === "production"){
-  app.listen(config.port, () => console.log(`Server is running on port: ${config.port}`))
-
-// Port setting in dev
-} else {
+// SETTING PORT IN DEV (tests db on boot)
+if(config.env === "development"){
   // DB Ping function (dev testing)
   db.listCollections()
   .then(collections => {
@@ -68,4 +66,8 @@ if(config.env === "preview" || config.env === "production"){
   .then(() => {
     app.listen(config.port, () => console.log(`Server is running on port: ${config.port}`))
   })
+
+// SETTING PORT IN PREVIEW/PROD
+} else {
+  app.listen(config.port, () => console.log(`Server is running on port: ${config.port}`))
 }

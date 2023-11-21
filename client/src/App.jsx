@@ -1,6 +1,6 @@
 // EXTERNAL LIBRARIES
-import { Routes, Route } from 'react-router-dom';
 import { useState, useCallback } from 'react';
+import { Routes, Route } from 'react-router-dom';
 
 // LOCAL SERVICES
 import productService from './services/productService';
@@ -32,6 +32,7 @@ function App() {
   ]);
 
   // POPULATING API PRODUCTS
+  // BUG: When directly navigating to /store/products - it breaks as function NOT called for direct navigation
   const handleFetchProducts = useCallback(async () => {
     const response = await productService.getAll();
     const data = await response.data;
@@ -40,6 +41,7 @@ function App() {
   }, [])
 
   // FUNCTION TO SAVE, UPDATE + REMOVE CART PRODUCTS FROM LOCAL STORAGE
+
 
   // PRODUCT-CART FUNCTION: SAVE NEW ITEM TO CART FROM DETAILS
   function addNewProductToCart(newCartProduct){

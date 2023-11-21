@@ -26,7 +26,7 @@ try {
       universe_domain: config.db.universe_domain,
     };
   }
-  debugError500(serviceAccountKey)
+  
   // OPTIONS: Grants admin access to Firebase services + bucket services
   const firebaseAppOptions = {
     credential: admin.credential.cert(serviceAccountKey),
