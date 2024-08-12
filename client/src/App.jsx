@@ -2,9 +2,6 @@
 import { useState, useCallback } from 'react';
 import { Routes, Route } from 'react-router-dom';
 
-// LOCAL SERVICES
-import productService from './services/productService';
-
 // LOCAL MODULES
 import Layout from './components/layout/Layout';
 import PrivateRoutes from './components/layout/PrivateRoutes';
@@ -19,6 +16,8 @@ import ProductSaleMenu from './pages/product/ProductSaleMenu';
 import ProductDetail from './pages/product/ProductDetail';
 import AddProduct from './pages/product/AddProduct';
 import EditProduct from './pages/product/EditProduct';
+
+import productService from './services/productService';
 
 function App() {
   // APP-LEVEL STATE

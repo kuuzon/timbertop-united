@@ -11,7 +11,7 @@ const productRoutes = require('./productRoutes');
 module.exports = () => {
   // [A] HOME: GET Route
   router.get('/', (req, res) => {
-    res.send('Welcome to Geoff\'s App API');
+    res.send('Welcome to the Timbertop United API');
   });
 
   // [B] Sub-Routes
