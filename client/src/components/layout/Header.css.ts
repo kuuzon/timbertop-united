@@ -5,7 +5,7 @@ export const navbar = style({
   fontFamily: vars.fonts.brand,
   backgroundColor: vars.colors.primary,
   padding: `${vars.space['5x']} 0`,
-  boxShadow: `${vars.colors.primaryContrast} 0px 2px 2px 0px`
+  boxShadow: `${vars.colors.primaryContrast} 0px 2px 2px 0px`,
 })
 
 export const brandLink = style({
@@ -16,7 +16,7 @@ export const brandLink = style({
   color: vars.colors.complementary,
   fontSize: vars.fontSizes["0x"],
   textTransform: "uppercase",
-  transition: "0.2s ease-in-out",
+  transition: "0.5s ease-in-out",
   padding: 0,
 
   ":focus": {
@@ -58,7 +58,7 @@ export const navLink = style({
   color: vars.colors.complementary,
   fontSize: vars.fontSizes["0x"],
   textTransform: "uppercase",
-  transition: "0.2s ease-in",
+  transition: "0.5s ease-in",
 
   ":focus": {
     color: vars.colors.brand,
@@ -71,5 +71,15 @@ export const navLink = style({
 
 export const buttonNav = style({
   gap: vars.space['1x'],
-  
+  alignItems: "center"
+})
+
+export const themeToggleBtn = style({
+  fontSize: vars.fontSizes['3x'],
+  paddingBottom: vars.space['0x'],
+  color: vars.colors.highlightDark,
+
+  ":hover": {
+    color: vars.colors.complementary,
+  }
 })

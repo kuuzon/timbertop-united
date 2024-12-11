@@ -33,6 +33,7 @@ export const filledLink = style({
   color: vars.colors.primary,
   backgroundColor: vars.colors.complementary,
   borderColor: vars.colors.complementary,
+  transition: "0.2s ease-in-out",
 
   ":hover": {
     color: vars.colors.complementary,
@@ -45,6 +46,7 @@ export const outlineLink = style({
   color: vars.colors.complementary,
   backgroundColor: vars.colors.primary,
   borderColor: vars.colors.complementary,
+  transition: "0.2s ease-in-out",
 
   ":hover": {
     color: vars.colors.primary,

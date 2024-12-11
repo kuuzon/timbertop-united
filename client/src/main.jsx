@@ -9,6 +9,7 @@ import './styles/typography.css'
 
 // Global styling
 import 'bootstrap/dist/css/bootstrap.min.css';
+import "@theme-toggles/react/css/Within.css"
 import 'react-toastify/dist/ReactToastify.css';
 
 // Root component

@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { Nav, Navbar, Container } from "react-bootstrap";
 import { RiShoppingCartFill } from 'react-icons/ri';
 import logoImg from '../../assets/images/timbertop-icon.png'
+import { Within } from "@theme-toggles/react"
 
 // Import custom modules
 import * as styles from './Header.css';
@@ -39,12 +40,16 @@ const Header = ({ cartProducts, handleToggleTheme }) => {
             </Nav>
             {/* AUTH NAVLINKS */}
             <Nav className={styles.buttonNav}>
-              <TuButton onClick={() => { handleToggleTheme() }}>Theme</TuButton>
+              <Within 
+                className={styles.themeToggleBtn}
+                duration={750} 
+                onToggle={() => { handleToggleTheme() }}
+              />
               {!user && <TuLink to="/signup" >Sign&nbsp;Up</TuLink>}
               {!user && <TuLink to="/login"  >Log&nbsp;In</TuLink>}
-              {user && <TuLink to="/dashboard" >Dashboard</TuLink>}
-              {user && <TuButton onClick={() => { logout() }}  >Logout</TuButton>}
-              {<TuButton onClick={handleShow}  ><RiShoppingCartFill /></TuButton>}
+              {user && <TuLink mdLink={true} to="/dashboard" >Dashboard</TuLink>}
+              {user && <TuButton mdBtn={true} onClick={() => { logout() }}  >Logout</TuButton>}
+              {<TuButton mdBtn={true} onClick={handleShow}  ><RiShoppingCartFill /></TuButton>}
             </Nav>
           </Navbar.Collapse>
         </Container>
