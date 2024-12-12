@@ -1,5 +1,6 @@
-import { style } from '@vanilla-extract/css';
+import { style, keyframes } from '@vanilla-extract/css';
 import { vars } from '../../styles/themes.css';
+import { transitions } from 'polished';
 
 export const navbar = style({
   fontFamily: vars.fonts.brand,
@@ -74,12 +75,25 @@ export const buttonNav = style({
   alignItems: "center"
 })
 
+const baselineDeg = 23;
+const wiggle = keyframes({
+  '0%': { transform: `rotate(${baselineDeg}deg)` },
+  '25%': { transform: `rotate(${baselineDeg * 1.5}deg)` },
+  '50%': { transform: `rotate(${baselineDeg / 1.2}deg)` },
+  '65%': { transform: `rotate(${baselineDeg * 1.2}deg)` },
+  '80%': { transform: `rotate(${baselineDeg / 1.1}deg)` },
+  '90%': { transform: `rotate(${baselineDeg * 1.05}deg)` },
+  '100%': { transform: `rotate(${baselineDeg}deg)` }
+});
+
 export const themeToggleBtn = style({
   fontSize: vars.fontSizes['3x'],
-  paddingBottom: vars.space['0x'],
+  marginBottom: vars.space['0x'],
   color: vars.colors.complementary,
+  transform: `rotate(${baselineDeg}deg)`,
 
   ":hover": {
     color: vars.colors.highlight,
+    animation: `${wiggle} 0.5s`
   }
-})
+});
