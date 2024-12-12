@@ -77,9 +77,9 @@ export const buttonNav = style({
 export const themeToggleBtn = style({
   fontSize: vars.fontSizes['3x'],
   paddingBottom: vars.space['0x'],
-  color: vars.colors.highlightDark,
+  color: vars.colors.complementary,
 
   ":hover": {
-    color: vars.colors.complementary,
+    color: vars.colors.highlight,
   }
 })

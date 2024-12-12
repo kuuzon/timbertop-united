@@ -45,11 +45,11 @@ const Header = ({ cartProducts, handleToggleTheme }) => {
                 duration={750} 
                 onToggle={() => { handleToggleTheme() }}
               />
-              {!user && <TuLink to="/signup" >Sign&nbsp;Up</TuLink>}
-              {!user && <TuLink to="/login"  >Log&nbsp;In</TuLink>}
+              {!user && <TuLink mdLink={true} to="/signup" >Sign&nbsp;Up</TuLink>}
+              {!user && <TuLink mdLink={true} to="/login"  >Log&nbsp;In</TuLink>}
               {user && <TuLink mdLink={true} to="/dashboard" >Dashboard</TuLink>}
               {user && <TuButton mdBtn={true} onClick={() => { logout() }}  >Logout</TuButton>}
-              {<TuButton mdBtn={true} onClick={handleShow}  ><RiShoppingCartFill /></TuButton>}
+              {<TuButton mdBtn={true} onClick={handleShow} ><RiShoppingCartFill /></TuButton>}
             </Nav>
           </Navbar.Collapse>
         </Container>

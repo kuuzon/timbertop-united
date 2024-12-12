@@ -5,6 +5,6 @@ export const footer = style({
   color: vars.colors.complementary,
   backgroundColor: vars.colors.primary,
   padding: vars.space["5x"],
-  borderTop: `1px solid ${vars.colors.highlight}`,
+  borderTop: `1px solid ${vars.colors.primaryContrast}`,
   textAlign: "center"
 })
