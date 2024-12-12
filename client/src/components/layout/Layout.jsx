@@ -6,7 +6,7 @@ import Footer from './Footer'
 
 import { useState, useEffect } from 'react';
 import { Outlet } from 'react-router-dom';
-import { ToastContainer, Slide } from 'react-toastify';
+import { ToastContainer, Flip } from 'react-toastify';
 
 const Layout = ({ cartProducts }) => {
   const [theme, setTheme] = useState("light");
@@ -34,8 +34,7 @@ const Layout = ({ cartProducts }) => {
   return (
     <div className={`${styles.app} ${isDarkTheme ? darkTheme : lightTheme}`}>
       <ToastContainer 
-        style={{ textAlign: "center" }} 
-        position='top-center'
+        position='bottom-right'
         autoClose={5000}
         hideProgressBar
         newestOnTop={false}
@@ -44,7 +43,7 @@ const Layout = ({ cartProducts }) => {
         pauseOnFocusLoss={false}
         draggable
         pauseOnHover
-        transition={Slide}
+        transition={Flip}
         theme="colored"
       />
       <Header cartProducts={cartProducts} handleToggleTheme={toggleTheme} />
