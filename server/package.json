@@ -15,24 +15,24 @@
     "prodstack": "concurrently -k \"yarn server\" \"yarn client\""
   },
   "dependencies": {
-    "axios": "^1.7.3",
-    "bcrypt": "^5.1.1",
+    "axios": "^1.11.0",
+    "bcrypt": "^6.0.0",
     "cors": "^2.8.5",
-    "debug": "^4.3.6",
-    "dotenv": "^16.4.5",
-    "express": "^4.19.2",
-    "express-fileupload": "^1.5.1",
-    "firebase-admin": "^12.3.1",
-    "helmet": "^7.1.0",
+    "debug": "^4.4.1",
+    "dotenv": "^17.2.1",
+    "express": "^5.1.0",
+    "express-fileupload": "^1.5.2",
+    "firebase-admin": "^13.4.0",
+    "helmet": "^8.1.0",
     "joi": "^17.13.3",
     "jsonwebtoken": "^9.0.2",
     "lodash": "^4.17.21",
-    "morgan": "^1.10.0",
-    "uuid": "^10.0.0"
+    "morgan": "^1.10.1",
+    "uuid": "^11.1.0"
   },
   "devDependencies": {
-    "concurrently": "^8.2.2",
-    "nodemon": "^3.1.4"
+    "concurrently": "^9.2.0",
+    "nodemon": "^3.1.10"
   },
   "packageManager": "yarn@1.22.19+sha1.4ba7fc5c6e704fce2066ecbfb0b0d8976fe62447"
 }

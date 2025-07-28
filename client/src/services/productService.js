@@ -3,6 +3,7 @@ import api from "../services/api";
 // MAIN AXIOS PRODUCT METHODS:
 // GET ALL - ProductMenu
 function getAll() {
+  console.log("getAll");
   return api.get('/api/products');
 }
 // GET ALL ONSALE - ProductSale

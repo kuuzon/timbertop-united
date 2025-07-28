@@ -4,7 +4,6 @@ import { vanillaExtractPlugin } from '@vanilla-extract/vite-plugin';
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
-  // eslint-disable-next-line no-undef
   const env = loadEnv(mode, process.cwd(), '')
 
   return {
@@ -24,7 +23,6 @@ export default defineConfig(({ mode }) => {
         '/api': {
           target: env.VITE_API_URL,
           changeOrigin: true,
-          secure: false,
         }
       }
     }
