@@ -7,12 +7,10 @@
   "license": "ISC",
   "scripts": {
     "dev": "DEBUG=app* nodemon src/index",
-    "devpc": "DEBUG=app* & nodemon src/index",
+    "devpc": "@powershell -Command $env:DEBUG='*';nodemon src/index.js",
+    "server": "nodemon src/index",
     "preview": "DEBUG=app* node src/index",
-    "prod": "node src/index",
-    "client": "cd ../ && npm start --prefix client",
-    "devstack": "concurrently -k \"yarn debug\" \"yarn client\"",
-    "prodstack": "concurrently -k \"yarn server\" \"yarn client\""
+    "prod": "node src/index"
   },
   "dependencies": {
     "axios": "^1.11.0",
@@ -31,7 +29,6 @@
     "uuid": "^11.1.0"
   },
   "devDependencies": {
-    "concurrently": "^9.2.0",
     "nodemon": "^3.1.10"
   },
   "packageManager": "yarn@1.22.19+sha1.4ba7fc5c6e704fce2066ecbfb0b0d8976fe62447"

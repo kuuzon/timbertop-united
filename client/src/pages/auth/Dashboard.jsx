@@ -1,10 +1,15 @@
 import useAuth from '../../hooks/useAuth';
 import TuCard from '../../components/common/TuCard';
 import TuButton from '../../components/common/TuButton';
+import TuLoader from "../../components/common/TuLoader";
 
 const Dashboard = () => {
   // HOOK: CONTEXT FOR AUTH
-  const { user, logout } = useAuth();
+  const { user, logout, userLoading } = useAuth();
+
+  if (userLoading) {
+    return <TuLoader />;
+  }
 
   // CONDITIONAL LOAD: USER ERROR [POSSIBLY REPLACE WITH LOADING STATE]
   if (!user) {

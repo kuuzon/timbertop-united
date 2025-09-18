@@ -11,12 +11,23 @@ const AuthContext = React.createContext();
 export function AuthProvider({ children }) {
   // User State, Mount Request & Variables
   const [user, setUser] = useState(null);
+  const [userLoading, setUserLoading] = useState(true);
   let navigate = useNavigate();
 
   useEffect(() => {
-    const userData = getCurrentUser();
-    setUser(userData);
-  }, []);
+    const initializeAuth = async () => {
+      // Add a small delay to prevent flickering on fast operations
+      const [userData] = await Promise.all([
+        Promise.resolve(getCurrentUser()),
+        new Promise(resolve => setTimeout(resolve, 300)) // Minimum 300ms loading time
+      ]);
+      
+      setUser(userData);
+      setUserLoading(false);
+    };
+
+    initializeAuth();
+  }, [])
 
   // 1. Signup & Login Function
   const loginSaveUser = async (data) => {
@@ -32,6 +43,7 @@ export function AuthProvider({ children }) {
       const token = localStorage.getItem("token");
       const savedUser = jwtDecode(token);
       return savedUser;
+      
     } catch (error) {
       return null;
     }
@@ -48,6 +60,7 @@ export function AuthProvider({ children }) {
   // Passed to Provider as sub-props
   const value = {
     user,
+    userLoading,
     getCurrentUser,
     loginSaveUser,
     logout
