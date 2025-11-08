@@ -24,8 +24,8 @@ function getById(id) {
   return api.get('/api/products/' + id);
 }
 // PUT - EditProduct
-function put(id, data, uploadedfile) {
-  const formData = prepareFormData(data, uploadedfile);
+function put(id, data, oldImageUrl) {
+  const formData = prepareFormData(data, oldImageUrl);
   return api.put(
     '/api/products/' + id, 
     formData, 
@@ -46,7 +46,7 @@ const formConfig = {
 }
 
 // [2] Form Data: format of mixed data when uploading files
-function prepareFormData(data, uploadedfile){
+function prepareFormData(data, oldImageUrl){
   // New instance of class
   let formData = new FormData();
 
@@ -60,8 +60,8 @@ function prepareFormData(data, uploadedfile){
   formData.append('onSale', data.onSale);
   formData.append('isAvailable', data.isAvailable);
   formData.append('image', data.image);
-  if (uploadedfile) {
-    formData.append('uploadedFile', uploadedfile);
+  if (oldImageUrl) {
+    formData.append('oldImageUrl', oldImageUrl);
   }
   
   // Return restructured form data (for our API)

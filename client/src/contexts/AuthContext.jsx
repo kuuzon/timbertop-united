@@ -10,7 +10,7 @@ const AuthContext = React.createContext();
 // Create our basic AuthProvider, to allow access to context values [DEFINES the WRAPPER]
 export function AuthProvider({ children }) {
   // User State, Mount Request & Variables
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState(getCurrentUser);
   const [userLoading, setUserLoading] = useState(true);
   let navigate = useNavigate();
 
@@ -44,7 +44,7 @@ export function AuthProvider({ children }) {
       const savedUser = jwtDecode(token);
       return savedUser;
       
-    } catch (error) {
+    } catch (err) {
       return null;
     }
   }

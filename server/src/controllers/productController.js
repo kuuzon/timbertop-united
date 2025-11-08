@@ -1,7 +1,7 @@
 // Import modules
 const { db } = require('../config/db');
 const ApiError = require('../utilities/ApiError');
-const { storageBucketUpload, getFileFromUrl, deleteFileFromBucket } = require('../utilities/bucketServices');
+const { cloudinaryImageUpload, getFileIdFromUrl, cloudinaryDeleteImage } = require('../lib/cloudinaryImageUploadService')
 
 // Debug logs
 const debugREAD = require('debug')('app:read');
@@ -91,10 +91,11 @@ module.exports = {
     debugWRITE(res.locals);
 
     // (b) File Upload to Storage Bucket
-    let downloadURL = null;
+    let downloadUrl;
     try {      
       const filename = res.locals.filename;
-      downloadURL = await storageBucketUpload(filename);
+      const uploadResult = await cloudinaryImageUpload(filename);
+      downloadUrl = uploadResult.data.secure_url;
 
     // [500 ERROR] Checks for Errors in our File Upload
     } catch(err) {
@@ -113,7 +114,7 @@ module.exports = {
         texture: req.body.texture,
         onSale: req.body.onSale,
         isAvailable: req.body.isAvailable,
-        image: downloadURL
+        image: downloadUrl
       });
       console.log(`Added Product ID: ${response.id}`);
       res.send(response.id);
@@ -160,22 +161,26 @@ module.exports = {
     // (b1) File Upload to Storage Bucket
     // IMAGE CHANGED: If the image is updated, a new file will be saved under req.files
     // NOTE: We will call standard file uploader + we will ALSO need to delete the OLD image URL from the storage location (if there is one)
-    let downloadURL = null;
+    let downloadUrl;
     try {      
       if (req.files){
         // (i) Storage-Upload
         const filename = res.locals.filename;
-        downloadURL = await storageBucketUpload(filename);
+        const uploadResult = await cloudinaryImageUpload(filename);
+        downloadUrl = uploadResult.data.secure_url;
 
         // (ii) Delete OLD image version in Storage Bucket, if it exists
-        if (req.body.uploadedFile) {
-          debugWRITE(`Deleting old image in storage: ${req.body.uploadedFile}`);
-          const bucketResponse = await deleteFileFromBucket(req.body.uploadedFile);
+        if (req.body.oldImageUrl) {
+          debugWRITE(`Deleting old image in storage: ${req.body.oldImageUrl}`);
+          const oldImageId = getFileIdFromUrl(req.body.oldImageUrl)
+          const deleteResult = await cloudinaryDeleteImage(oldImageId);
+          debugWRITE(deleteResult)
         }
-      // (b2) IMAGE NOT CHANGED: We just pass back the current downloadURL and pass that back to the database, unchanged!
+
+      // (b2) IMAGE NOT CHANGED: We just pass back the current downloadUrl and pass that back to the database, unchanged!
       } else if (req.body.image) {
         console.log(`No change to image in DB`);
-        downloadURL = req.body.image;
+        downloadUrl = req.body.image;
         
       } else {
         return next(ApiError.badRequest('The file you are trying to upload cannot be edited at this time'));
@@ -198,7 +203,7 @@ module.exports = {
         texture: req.body.texture,
         onSale: req.body.onSale,
         isAvailable: req.body.isAvailable,
-        image: downloadURL
+        image: downloadUrl
       });
       res.send(response);
 
@@ -221,20 +226,17 @@ module.exports = {
         return next(ApiError.badRequest('The item you were looking for does not exist'));
       } 
       
-      // (ii) Store downloadURL and obtain uploadedFile in storage bucket
-      const downloadURL = doc.data().image;
-      const uploadedFile = getFileFromUrl(downloadURL);
+      // (ii) Store downloadUrl and obtain oldImageId in storage bucket
+      const downloadUrl = doc.data().image;
+      const oldImageId = getFileIdFromUrl(downloadUrl);
 
-      // (iii) Call storage bucket delete function & delete previously uploadedFile
-      const bucketResponse = await deleteFileFromBucket(uploadedFile);
+      // (iii) Call storage bucket delete function & delete previously oldImageId
+      const cloudResponse = await cloudinaryDeleteImage(oldImageId);
+      debugWRITE(cloudResponse?.data);
 
-      // (b) Delete document from Cloud Firestore
-      if (bucketResponse) {
-        // Call DELETE method for ID (with PRECONDITION parameter to check document exists)
-        // NOTE: We defined Ref earlier!
+      // Check image delete has occurred & cue firestore doc deletion
+      if(cloudResponse.success){
         const response = await productRef.delete({exists:true});
-
-        // SUCCESS: Issue back response for timebeing
         res.send(response);
       }
 

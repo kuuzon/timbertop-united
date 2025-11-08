@@ -1,8 +1,9 @@
 // Import in modules
-const { bucket } = require('../config/db');
-const { checkServerFile, deleteServerFile } = require("../utilities/serverFileServices")
-const debugBucket = require('debug')('app:bucket');
 const config = require("../config/config");
+const { bucket } = require('../config/db');
+const { checkServerFile, deleteServerFile } = require("../utilities/serverFileServices");
+
+const debugBucket = require('debug')('app:bucket');
 const uuid = require('uuid');
 
 module.exports = {

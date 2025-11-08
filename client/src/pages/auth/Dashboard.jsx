@@ -11,17 +11,6 @@ const Dashboard = () => {
     return <TuLoader />;
   }
 
-  // CONDITIONAL LOAD: USER ERROR [POSSIBLY REPLACE WITH LOADING STATE]
-  if (!user) {
-    return (
-      <TuCard title="Profile" authform>
-        <div className="text-center mb-4">
-          Cannot Retrieve User
-        </div>
-      </TuCard>
-    )
-  }
-
   return (
     <TuCard title="Profile" authform>
       <div className="text-center mb-4">

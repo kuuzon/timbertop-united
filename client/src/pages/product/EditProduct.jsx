@@ -4,7 +4,6 @@ import { Container, Row, Col, Form, InputGroup, Spinner } from 'react-bootstrap'
 
 import * as styles from './EditProduct.css'
 import productService from "../../services/productService";
-import { getFileFromUrl } from '../../utilities/writeUtils'
 import TuLoader from "../../components/common/TuLoader";
 import TuCard from "../../components/common/TuCard";
 import TuButton from "../../components/common/TuButton";
@@ -29,7 +28,7 @@ function EditProduct() {
   const [error, setError] = useState(false);
 
   // Uploaded File from Existing downloadURL
-  const [uploadedFile, setUploadedFile] = useState("");
+  const [oldImageUrl, setOldImageUrl] = useState("");
   const [preview, setPreview] = useState(true);
 
   // Destructure data state nested object properties & instance of useNavigate class
@@ -66,8 +65,7 @@ function EditProduct() {
       if (!dbProduct.image) {      
         console.log('No downloadURL provided by DB'); 
       } else {
-        const fileGlob = getFileFromUrl(dbProduct.image);
-        setUploadedFile(fileGlob);
+        setOldImageUrl(dbProduct.image);
       }
 
     } catch(err) {
@@ -96,7 +94,7 @@ function EditProduct() {
     setLoading(true);
     try {
       // NOTE: We add uploadedFile parameter to pass image glob
-      const response = await productService.put(id, productData, uploadedFile);
+      const response = await productService.put(id, productData, oldImageUrl);
       console.log(response);
       navigate('/store/products');
 

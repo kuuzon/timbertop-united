@@ -1,5 +1,7 @@
 // DATABASE CONFIGURATION
 var admin = require("firebase-admin");
+const cloudinary = require('cloudinary').v2;
+
 const config = require("./config");
 const dbStartup = require('debug')('app:db');
 const debugError500 = require('debug')('app:error500');
@@ -37,9 +39,19 @@ try {
   admin.initializeApp(firebaseAppOptions);
   const db = admin.firestore();
   const bucket = admin.storage().bucket();
-  
+
+  // Configure Cloudinary with credentials
+  cloudinary.config({
+    cloud_name: config.cloudinary.cloud_name,
+    api_key: config.cloudinary.api_key,
+    api_secret: config.cloudinary.api_secret,
+  });
+
+  // Initialise cloudinary admin & uploader services
+  const cloudUploader = cloudinary.uploader;
+
   // Export variable objects for use in our application
-  module.exports = { db, bucket };
+  module.exports = { db, bucket, cloudUploader };
 
 // DEBUG: Unhandled error will be logged to console
 } catch(err) {

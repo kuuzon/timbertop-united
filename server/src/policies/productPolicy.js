@@ -17,7 +17,7 @@ module.exports = {
       onSale: Joi.boolean().required(),
       isAvailable: Joi.boolean().required(),
       image: Joi.any(),
-      uploadedFile: Joi.string()
+      oldImageUrl: Joi.string()
     });
     
     // Return one of two values
